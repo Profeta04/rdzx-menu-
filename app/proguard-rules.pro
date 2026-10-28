@@ -1,0 +1,3 @@
+-keepclasseswithmembernames class * { native <methods>; }
+-keep class io.zdrx.client.** { *; }
+-dontwarn java.nio.**
