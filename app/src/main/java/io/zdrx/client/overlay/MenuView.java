@@ -54,6 +54,9 @@ public class MenuView extends LinearLayout {
         caret.setPadding(16, 0, 8, 0);
         bar.addView(caret);
 
+        body = new LinearLayout(c);
+        body.setOrientation(VERTICAL);
+
         bar.setOnClickListener(v -> {
             open = !open;
             body.setVisibility(open ? VISIBLE : GONE);
@@ -61,9 +64,6 @@ public class MenuView extends LinearLayout {
         });
         bar.setOnTouchListener(new Drag());
         addView(bar);
-
-        body = new LinearLayout(c);
-        body.setOrientation(VERTICAL);
         addView(body);
 
         build();
