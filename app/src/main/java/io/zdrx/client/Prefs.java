@@ -16,11 +16,11 @@ public final class Prefs {
         return sp == null ? def : sp.getString(k, def);
     }
 
-    public static void str(String k, String v) {
+    public static void putStr(String k, String v) {
         if (sp != null) sp.edit().putString(k, v).apply();
     }
 
-    public static void saveCfg() { str("cfg", Zdrx.cfgJson()); }
+    public static void saveCfg() { putStr("cfg", Zdrx.cfgJson()); }
 
     public static void loadCfg() {
         String j = str("cfg", null);
