@@ -1,0 +1,75 @@
+{
+  "manifest_version": 3,
+  "name": "HyperBuild",
+  "version": "7.6.12",
+  "description": "Extensão premium com validação de licença, modo plano e automação inteligente.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "https://*.lovable.dev/*",
+    "https://api.lovable.dev/*",
+    "https://lovable.dev/*",
+    "https://cvbgrjauqjawrsyknhyj.supabase.co/*",
+    "https://api.groq.com/*"
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.lovable.dev/*",
+        "https://lovable.dev/*",
+        "https://api.lovable.dev/*",
+        "https://cvbgrjauqjawrsyknhyj.supabase.co/*",
+        "https://*.supabase.co/*"
+      ],
+      "js": [
+        "hwFingerprint.js",
+        "upload-manager.js",
+        "content-templates.js",
+        "services/content-utils.js",
+        "services/chat-history.js",
+        "services/file-utils.js",
+        "content.js"
+      ],
+      "css": [
+        "floating.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "pageHook.js"
+      ],
+      "matches": [
+        "https://*.lovable.dev/*",
+        "https://lovable.dev/*",
+        "https://cvbgrjauqjawrsyknhyj.supabase.co/*",
+        "https://*.supabase.co/*"
+      ]
+    }
+  ]
+}

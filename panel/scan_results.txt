@@ -1,0 +1,500 @@
+src/components/burp/BurpScriptsGrid.tsx:34:    <Card className="border-white/5 bg-zinc-950 shadow-2xl">
+src/components/burp/BurpScriptsGrid.tsx:35:      <CardHeader className="border-b border-border bg-white/5">
+src/components/burp/BurpRequestForm.tsx:36:            className="w-full h-11 bg-white/5 border border-white/10 rounded-xl px-3 text-sm font-black uppercase tracking-widest focus:ring-primary focus:border-primary outline-none"
+src/components/burp/BurpRequestForm.tsx:48:            className="h-11 pl-11 bg-white/5 border-white/10 rounded-xl font-mono text-sm focus:ring-primary/40"
+src/components/burp/BurpRequestForm.tsx:76:          className="min-h-[200px] bg-black/40 border-white/5 font-mono text-sm focus:ring-primary/20 rounded-xl resize-none p-4"
+src/components/burp/BurpLovable.tsx:82:      <TabsList className="bg-white/5 border border-white/10">
+src/components/burp/BurpLovable.tsx:100:            <Card className="border-white/5 bg-zinc-950 shadow-2xl overflow-hidden">
+src/components/burp/BurpLovable.tsx:101:              <CardHeader className="border-b border-border bg-white/5 pb-4">
+src/components/burp/BurpLovable.tsx:118:                      <Badge className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20 px-3 py-1 gap-1.5 uppercase font-black text-[9px] tracking-widest">
+src/components/burp/BurpLovable.tsx:124:                        className="text-orange-400 border-orange-500/20 px-3 py-1 gap-1.5 uppercase font-black text-[9px] tracking-widest animate-pulse"
+src/components/burp/BurpLovable.tsx:132:                        className="bg-white/5 border-white/10 px-3 py-1 gap-1.5 uppercase font-black text-[9px] tracking-widest"
+src/components/burp/BurpLovable.tsx:140:                        className="bg-white/5 border-white/10 px-3 py-1 gap-1.5 uppercase font-black text-[9px] tracking-widest"
+src/components/burp/BurpLovable.tsx:150:                      className="h-8 bg-orange-500/10 border-orange-500/20 hover:bg-orange-500/20 text-orange-300 rounded-lg font-black uppercase tracking-widest text-[9px] transition-all active:scale-95"
+src/components/burp/BurpPresetsManager.tsx:185:      <Card className="border-white/5 bg-zinc-950">
+src/components/burp/BurpPresetsManager.tsx:267:      <Card className="border-white/5 bg-zinc-950">
+src/components/burp/BurpResponseViewer.tsx:9:    <div className="border-t border-border bg-black/20">
+src/components/burp/BurpResponseViewer.tsx:16:            <span className="text-[10px] font-bold text-emerald-400/60 uppercase">
+src/components/burp/BurpResponseViewer.tsx:19:            <span className="text-[10px] font-bold text-emerald-400/60 uppercase">
+src/components/burp/BurpResponseViewer.tsx:24:        <div className="bg-black/60 border border-border rounded-xl p-4 min-h-[300px] overflow-auto">
+src/components/burp/BurpResponseViewer.tsx:25:          <pre className="text-xs font-mono text-emerald-400 leading-relaxed">
+src/components/burp/BurpHistoryList.tsx:16:  if (method === "GET") return "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
+src/components/burp/BurpHistoryList.tsx:18:  return "bg-orange-500/10 text-orange-400 border-orange-500/20";
+src/components/burp/BurpHistoryList.tsx:28:    <Card className="border-white/5 bg-zinc-950 shadow-2xl flex-1 flex flex-col overflow-hidden">
+src/components/burp/BurpHistoryList.tsx:29:      <CardHeader className="border-b border-border bg-white/5 shrink-0">
+src/components/burp/BurpHistoryList.tsx:41:            className="h-8 w-8 text-muted-foreground hover:text-red-400 hover:bg-red-400/10 rounded-lg"
+src/components/burp/BurpHistoryList.tsx:52:                <div className="p-4 rounded-full bg-white/5 border border-white/10">
+src/components/burp/BurpHistoryList.tsx:53:                  <Zap className="w-8 h-8 text-white/10" />
+src/components/burp/BurpHistoryList.tsx:56:                  <p className="text-xs font-black uppercase tracking-widest text-white/20">
+src/components/burp/BurpHistoryList.tsx:59:                  <p className="text-[10px] font-bold text-white/10">
+src/components/burp/BurpHistoryList.tsx:73:                      : "bg-white/5 border-white/5 hover:border-white/10 hover:bg-white/10"
+src/components/burp/BurpHistoryList.tsx:89:                          req.status < 400 ? "text-emerald-400" : "text-red-400"
+src/components/burp/BurpHistoryList.tsx:108:                    <ChevronRight className="w-3 h-3 text-white/10 group-hover:text-primary transition-colors shrink-0" />
+src/components/burp/BurpHistoryList.tsx:116:      <div className="p-4 border-t border-border bg-black/40 shrink-0">
+src/components/burp/BurpHistoryList.tsx:119:          className="w-full h-10 border-white/5 bg-white/5 hover:bg-white/10 rounded-xl text-[10px] font-black uppercase tracking-widest gap-2"
+src/pages/Index.tsx:28:          <span className="text-xl font-black tracking-tighter text-white">HYPERBUILD</span>
+src/pages/Index.tsx:32:          <div className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+src/pages/Index.tsx:33:            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+src/pages/Index.tsx:34:            <span className="text-[10px] font-bold uppercase tracking-widest text-white/60">Sistemas em Teste</span>
+src/pages/Index.tsx:36:          <Button variant="outline" size="icon" onClick={toggleTheme} aria-label="Alternar tema claro e escuro" className="rounded-xl bg-white/5 border-white/10 hover:bg-white/10 shadow-xl transition-all">
+src/pages/Index.tsx:37:            {theme === "dark" ? <Sun className="h-5 w-5 text-orange-400" /> : <Moon className="h-5 w-5 text-purple-400" />}
+src/pages/Index.tsx:51:            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white drop-shadow-2xl">
+src/pages/Index.tsx:54:            <p className="text-white/50 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+src/pages/Index.tsx:67:            <Button variant="outline" size="lg" className="w-full sm:w-auto h-16 px-10 rounded-2xl font-black text-lg bg-white/5 border-white/10 hover:bg-white/10 transition-all">
+src/pages/Index.tsx:74:          <h2 id="features-heading" className="text-3xl md:text-4xl font-black tracking-tight text-white mt-20 mb-8 text-center">Recursos</h2>
+src/pages/Index.tsx:98:      <footer className="p-8 text-center border-t border-white/5 bg-black/40 backdrop-blur-md">
+src/pages/Index.tsx:99:        <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.4em]">
+src/pages/Index.tsx:108:  <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all group">
+src/pages/Index.tsx:112:    <h3 className="text-white font-bold text-lg mb-2">{title}</h3>
+src/pages/Index.tsx:113:    <p className="text-white/40 text-sm leading-relaxed">{desc}</p>
+src/pages/AdminDashboard.tsx:485:        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-0 pointer-events-none" />
+src/pages/AdminDashboard.tsx:486:        <Card className="w-full max-w-[calc(100vw-2rem)] sm:max-w-md shadow-[0_0_80px_rgba(0,0,0,0.8)] border-white/10 bg-black/90 backdrop-blur-3xl rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden relative z-10 border border-white/10 ring-1 ring-white/5">
+src/pages/AdminDashboard.tsx:489:              <div className="p-4 sm:p-5 rounded-[1rem] sm:rounded-[1.5rem] bg-black border border-white/10 text-primary shadow-2xl shadow-primary/20 animate-pulse">
+src/pages/AdminDashboard.tsx:493:            <CardTitle className="text-3xl sm:text-4xl font-black tracking-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] uppercase italic">HyperBuild</CardTitle>
+src/pages/AdminDashboard.tsx:494:            <CardDescription className="text-white/40 font-bold uppercase tracking-widest text-[9px] sm:text-[10px] mt-2">
+src/pages/AdminDashboard.tsx:506:                  <User className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-white/20 transition-colors group-focus-within:text-primary" />
+src/pages/AdminDashboard.tsx:512:                    className="pl-12 h-12 sm:h-14 rounded-xl sm:rounded-2xl bg-black border-white/5 text-white placeholder:text-white/20 focus:ring-primary/40 focus:border-primary/40 transition-all border-l-2 focus:border-l-primary text-sm sm:text-base"
+src/pages/AdminDashboard.tsx:517:                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-white/20 transition-colors group-focus-within:text-primary" />
+src/pages/AdminDashboard.tsx:523:                    className="pl-12 h-12 sm:h-14 rounded-xl sm:rounded-2xl bg-black border-white/5 text-white placeholder:text-white/20 focus:ring-primary/40 focus:border-primary/40 transition-all border-l-2 focus:border-l-primary text-sm sm:text-base"
+src/pages/AdminDashboard.tsx:528:              <Button type="submit" className="w-full h-12 sm:h-14 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg shadow-[0_0_40px_rgba(0,0,0,0.6)] active:scale-[0.98] transition-all bg-primary hover:bg-primary/90 text-white" disabled={loading}>
+src/pages/AdminDashboard.tsx:535:                  className="text-[9px] sm:text-[10px] font-black tracking-widest uppercase text-white/30 hover:text-primary transition-colors"
+src/pages/AdminDashboard.tsx:545:                  <Key className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-white/20 transition-colors group-focus-within:text-primary" />
+src/pages/AdminDashboard.tsx:551:                    className="pl-12 h-12 sm:h-14 rounded-xl sm:rounded-2xl bg-black border-white/5 text-white placeholder:text-white/20 focus:ring-primary/40 focus:border-primary/40 transition-all border-l-2 focus:border-l-primary text-sm sm:text-base font-mono"
+src/pages/AdminDashboard.tsx:557:                <Button type="submit" className="w-full h-12 sm:h-14 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg shadow-[0_0_40px_rgba(0,0,0,0.6)] active:scale-[0.98] transition-all bg-primary hover:bg-primary/90 text-white" disabled={isVerifyingKey || isSendingOtp}>
+src/pages/AdminDashboard.tsx:560:                <Button type="button" variant="ghost" className="w-full text-[9px] sm:text-[10px] font-black tracking-widest uppercase text-white/20 hover:text-white transition-colors h-10" onClick={handleLogout}>
+src/pages/AdminDashboard.tsx:567:              <p className="text-center text-[10px] sm:text-xs text-white/40 font-bold tracking-wide">
+src/pages/AdminDashboard.tsx:572:                  <MessageSquare className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-white/20 transition-colors group-focus-within:text-primary" />
+src/pages/AdminDashboard.tsx:581:                    className="pl-12 h-12 sm:h-14 rounded-xl sm:rounded-2xl bg-black border-white/5 text-white placeholder:text-white/20 focus:ring-primary/40 focus:border-primary/40 transition-all border-l-2 focus:border-l-primary text-center text-lg sm:text-2xl font-mono tracking-[0.5em]"
+src/pages/AdminDashboard.tsx:587:                <Button type="submit" className="w-full h-12 sm:h-14 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg shadow-[0_0_40px_rgba(0,0,0,0.6)] active:scale-[0.98] transition-all bg-primary hover:bg-primary/90 text-white" disabled={isVerifyingOtp || otpInput.length !== 6}>
+src/pages/AdminDashboard.tsx:593:                  className="w-full text-[9px] sm:text-[10px] font-black tracking-widest uppercase text-white/40 hover:text-primary transition-colors h-10 disabled:opacity-40"
+src/pages/AdminDashboard.tsx:603:                <Button type="button" variant="ghost" className="w-full text-[9px] sm:text-[10px] font-black tracking-widest uppercase text-white/20 hover:text-white transition-colors h-10" onClick={handleLogout}>
+src/pages/AdminDashboard.tsx:616:    <div className="min-h-screen bg-black/20 text-foreground p-3 sm:p-4 md:p-6 transition-colors duration-300 pb-24 sm:pb-6">
+src/pages/AdminDashboard.tsx:625:                <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white">HYPERBUILD</h1>
+src/pages/AdminDashboard.tsx:626:                <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-[8px] sm:text-[9px] font-black uppercase tracking-tighter h-5 px-1.5 sm:px-2">
+src/pages/AdminDashboard.tsx:634:            <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-xl sm:rounded-2xl bg-white/5 border-white/10 hover:bg-white/10 shadow-xl shrink-0 h-10 w-10 sm:h-12 sm:w-12 transition-all active:scale-95">
+src/pages/AdminDashboard.tsx:635:              {theme === "dark" ? <Sun className="h-4 w-4 sm:h-5 sm:w-5 text-orange-400" /> : <Moon className="h-4 w-4 sm:h-5 sm:w-5 text-purple-400" />}
+src/pages/AdminDashboard.tsx:637:            <Button variant="ghost" onClick={handleLogout} className="h-10 sm:h-12 px-4 sm:px-6 rounded-xl sm:rounded-2xl font-black uppercase tracking-widest text-[9px] sm:text-[10px] text-white/40 hover:text-red-400 hover:bg-red-500/10 transition-all shrink-0">
+src/pages/AdminDashboard.tsx:640:            <div className="hidden sm:flex px-4 py-2 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shrink-0 h-12 items-center">
+src/pages/AdminDashboard.tsx:662:            color="text-emerald-500" bg="bg-emerald-500/10"
+src/pages/AdminDashboard.tsx:676:            color="text-orange-500" bg="bg-orange-500/10"
+src/pages/AdminDashboard.tsx:683:               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 glass-card p-2 sm:p-3 rounded-[2rem] sm:rounded-[2.5rem] sticky top-4 sm:top-6 z-20 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] bg-black/60 backdrop-blur-3xl ring-1 ring-white/5 mx-auto w-full">
+src/pages/AdminDashboard.tsx:684:                   <TabsList className="flex w-full bg-white/5 p-1 rounded-xl sm:rounded-2xl gap-1 border border-white/5 overflow-x-auto no-scrollbar">
+src/pages/AdminDashboard.tsx:699:                        className="rounded-lg sm:rounded-xl data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-xl font-black text-[9px] uppercase tracking-wide transition-all duration-500 h-9 sm:h-10 px-2 sm:px-3 min-w-fit flex-1 flex items-center justify-center gap-1.5 whitespace-nowrap"
+src/pages/AdminDashboard.tsx:742:    <Card className="overflow-hidden relative group transition-all duration-500 hover:shadow-[0_0_80px_rgba(255,255,255,0.05)] sm:hover:-translate-y-2 glass-card border border-white/5 bg-black/40 backdrop-blur-2xl rounded-[1.5rem] sm:rounded-[2rem]">
+src/pages/AdminDashboard.tsx:748:          <p className="text-2xl sm:text-5xl font-black tracking-tighter text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] bg-gradient-to-br from-white to-white/60 bg-clip-text text-transparent truncate">
+src/pages/AdminDashboard.tsx:751:          <p className="text-[8px] sm:text-[10px] font-black uppercase tracking-[0.1em] sm:tracking-[0.2em] text-white/30 group-hover:text-primary transition-colors truncate">
+src/pages/AdminDashboard.tsx:769:    <Card className="overflow-hidden relative group transition-all duration-500 hover:shadow-[0_0_80px_rgba(255,255,255,0.05)] sm:hover:-translate-y-2 glass-card border border-white/5 bg-black/40 backdrop-blur-2xl rounded-[1.5rem] sm:rounded-[2rem]">
+src/pages/AdminDashboard.tsx:775:          <p className="text-xl sm:text-3xl font-black tracking-tighter text-white truncate">{value}</p>
+src/pages/AdminDashboard.tsx:776:          <p className="text-[8px] sm:text-[10px] font-black uppercase tracking-[0.15em] text-white/30 truncate">{label}</p>
+src/pages/AdminDashboard.tsx:778:            <div className={`flex items-center gap-1 text-[9px] sm:text-[10px] font-bold ${positive ? "text-emerald-400" : "text-red-400"}`}>
+src/pages/AdminDashboard.tsx:781:              {deltaLabel && <span className="text-white/30 font-normal">· {deltaLabel}</span>}
+src/pages/AdminDashboard.tsx:990:        <StatCard icon={<CheckCircle2 className="h-5 w-5" />} label="Ativas" value={stats.active} bg="bg-emerald-500/10" color="text-emerald-400" />
+src/pages/AdminDashboard.tsx:991:        <StatCard icon={<Clock className="h-5 w-5" />} label="Expiradas" value={stats.expired} bg="bg-orange-500/10" color="text-orange-400" />
+src/pages/AdminDashboard.tsx:992:        <StatCard icon={<Shield className="h-5 w-5" />} label="Revogadas" value={stats.revoked} bg="bg-red-500/10" color="text-red-400" />
+src/pages/AdminDashboard.tsx:995:      <Card className="glass-card shadow-2xl border-white/10 overflow-hidden">
+src/pages/AdminDashboard.tsx:996:        <CardHeader className="pb-4 border-b border-white/5">
+src/pages/AdminDashboard.tsx:1002:              <CardDescription className="text-white/40 font-bold uppercase tracking-widest text-[10px]">Gerenciamento de acesso dos clientes</CardDescription>
+src/pages/AdminDashboard.tsx:1008:                  <Button className="h-11 px-6 font-black rounded-xl shadow-2xl shadow-primary/20 bg-primary hover:bg-primary/90 text-white transition-all active:scale-95">
+src/pages/AdminDashboard.tsx:1012:                <DialogContent className="glass-card border-primary/20 text-white max-w-md rounded-3xl p-6">
+src/pages/AdminDashboard.tsx:1022:                      <Input placeholder="Nome do cliente" value={userName} onChange={e => setUserName(e.target.value)} className="bg-black/40 border-white/5 rounded-xl h-12" />
+src/pages/AdminDashboard.tsx:1027:                        <Input type="email" placeholder="email@exemplo.com" value={clientEmail} onChange={e => setClientEmail(e.target.value)} className="bg-black/40 border-white/5 rounded-xl h-12" />
+src/pages/AdminDashboard.tsx:1031:                        <Input placeholder="(00) 00000-0000" value={clientPhone} onChange={e => setClientPhone(e.target.value)} className="bg-black/40 border-white/5 rounded-xl h-12" />
+src/pages/AdminDashboard.tsx:1038:                           <SelectTrigger className="bg-black/40 border-white/5 rounded-xl h-12"><SelectValue /></SelectTrigger>
+src/pages/AdminDashboard.tsx:1039:                           <SelectContent className="bg-black border-white/10">
+src/pages/AdminDashboard.tsx:1052:                               <SelectTrigger className="bg-black/40 border-white/5 rounded-xl h-12"><SelectValue /></SelectTrigger>
+src/pages/AdminDashboard.tsx:1053:                               <SelectContent className="bg-black border-white/10">
+src/pages/AdminDashboard.tsx:1065:                               <Input type="number" value={customDays} onChange={e => setCustomDays(e.target.value)} className="bg-black/40 border-white/5 rounded-xl h-12" min="1" />
+src/pages/AdminDashboard.tsx:1074:                           <Input type="number" value={dailyDays} onChange={e => setDailyDays(e.target.value)} className="bg-black/40 border-white/5 rounded-xl h-12" min="1" />
+src/pages/AdminDashboard.tsx:1075:                           <p className="text-[10px] text-white/40 italic">* Cada dia consumirá 1 token diário do revendedor.</p>
+src/pages/AdminDashboard.tsx:1082:                           <Input type="number" value={freeMinutes} onChange={e => setFreeMinutes(e.target.value)} className="bg-black/40 border-white/5 rounded-xl h-12" min="1" max="30" />
+src/pages/AdminDashboard.tsx:1083:                           <p className="text-[10px] text-white/40 italic">* Licenças de teste não consomem tokens.</p>
+src/pages/AdminDashboard.tsx:1087:                    <Button onClick={createLicense} disabled={creating} className="w-full h-14 bg-primary hover:bg-primary/90 text-white font-black rounded-xl shadow-xl mt-4">
+src/pages/AdminDashboard.tsx:1093:              <Button variant="outline" size="icon" onClick={refetch} className="rounded-xl h-11 w-11 border-white/10 bg-white/5" disabled={loading}>
+src/pages/AdminDashboard.tsx:1100:        <div className="p-4 border-b border-white/5 bg-white/5 flex flex-col md:flex-row gap-3">
+src/pages/AdminDashboard.tsx:1102:            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/20 group-focus-within:text-primary transition-colors" />
+src/pages/AdminDashboard.tsx:1107:              className="bg-black/40 border-white/5 rounded-xl h-11 pl-12 focus:ring-primary/20"
+src/pages/AdminDashboard.tsx:1112:              <SelectTrigger className="bg-black/40 border-white/5 rounded-xl h-11 w-full md:w-[130px] text-xs font-bold">
+src/pages/AdminDashboard.tsx:1116:              <SelectContent className="bg-black border-white/10">
+src/pages/AdminDashboard.tsx:1125:              <SelectTrigger className="bg-black/40 border-white/5 rounded-xl h-11 w-full md:w-[150px] text-xs font-bold">
+src/pages/AdminDashboard.tsx:1129:              <SelectContent className="bg-black border-white/10">
+src/pages/AdminDashboard.tsx:1148:                className="h-11 px-3 text-[10px] font-black uppercase text-white/40 hover:text-white"
+src/pages/AdminDashboard.tsx:1159:            <div key={l.id} className="flex flex-col md:flex-row md:items-center justify-between p-4 sm:p-5 hover:bg-white/[0.02] transition-all gap-3 sm:gap-4 relative group">
+src/pages/AdminDashboard.tsx:1168:                    <span className="text-[10px] sm:text-xs font-bold text-white truncate max-w-[100px] sm:max-w-[150px]">{l.user_name || "N/A"}</span>
+src/pages/AdminDashboard.tsx:1170:                  <div className="flex flex-col border-l border-white/10 pl-3 sm:pl-4">
+src/pages/AdminDashboard.tsx:1184:                  <div className="flex flex-col border-l border-white/10 pl-3 sm:pl-4">
+src/pages/AdminDashboard.tsx:1186:                    <span className="text-[10px] sm:text-xs font-bold text-white/60">{getRemainingTime(l.expires_at)}</span>
+src/pages/AdminDashboard.tsx:1191:                <Button variant="ghost" size="icon" onClick={() => copyKey(l.license_key)} className="hover:bg-white/10 rounded-full transition-colors h-8 w-8 sm:h-10 sm:w-10"><Copy className="h-3.5 w-3.5 sm:h-4 sm:w-4" /></Button>
+src/pages/AdminDashboard.tsx:1195:                    <Button variant="outline" size="sm" className="rounded-lg sm:rounded-xl h-8 sm:h-10 px-3 sm:px-4 bg-white/5 border-white/10 hover:bg-white/10 text-white transition-all text-[10px] sm:text-xs font-black">
+src/pages/AdminDashboard.tsx:1200:                  <DialogContent className="glass-card border-primary/20 text-white max-w-[calc(100vw-2rem)] sm:max-w-md rounded-[1.5rem] sm:rounded-3xl p-4 sm:p-6">
+src/pages/AdminDashboard.tsx:1208:                      <div className="p-3 sm:p-4 bg-white/5 rounded-xl sm:rounded-2xl border border-white/10 space-y-2 sm:space-y-3">
+src/pages/AdminDashboard.tsx:1211:                          <code className="text-xs sm:text-sm font-mono font-black break-all bg-black/30 p-2 rounded-lg">{l.license_key}</code>
+src/pages/AdminDashboard.tsx:1237:                        <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex flex-col gap-1">
+src/pages/AdminDashboard.tsx:1239:                          <span className={`text-sm font-bold ${getRemainingTime(l.expires_at) === "Expirada" ? "text-destructive" : "text-emerald-400"}`}>
+src/pages/AdminDashboard.tsx:1243:                        <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex flex-col gap-1">
+src/pages/AdminDashboard.tsx:1251:                      <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex flex-col gap-1">
+src/pages/AdminDashboard.tsx:1265:                            <span className="text-lg font-black text-white">{l.prompts_count || 0}</span>
+src/pages/AdminDashboard.tsx:1269:                            <span className="text-lg font-black text-white">
+src/pages/AdminDashboard.tsx:1281:                    <Button variant="outline" size="sm" className="rounded-lg sm:rounded-xl h-8 sm:h-10 px-3 sm:px-4 bg-emerald-500/10 border-emerald-500/20 hover:bg-emerald-500/20 text-emerald-400 transition-all text-[10px] sm:text-xs font-black">
+src/pages/AdminDashboard.tsx:1286:                  <DialogContent className="glass-card border-primary/20 text-white max-w-[calc(100vw-2rem)] sm:max-w-xs rounded-[1.5rem] sm:rounded-3xl p-4 sm:p-6">
+src/pages/AdminDashboard.tsx:1291:                      <DialogDescription className="text-white/60 text-xs">
+src/pages/AdminDashboard.tsx:1302:                          className="bg-black/40 border-white/5 rounded-xl h-12 focus:ring-primary/20"
+src/pages/AdminDashboard.tsx:1308:                        className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-black rounded-xl"
+src/pages/AdminDashboard.tsx:1330:              <div className="p-20 text-center text-white/20">
+src/pages/AdminDashboard.tsx:1338:            <div className="p-4 border-t border-white/5 flex items-center justify-between bg-black/20">
+src/pages/AdminDashboard.tsx:1339:              <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
+src/pages/AdminDashboard.tsx:1348:                  className="rounded-xl border-white/10 bg-white/5 h-8 text-[10px] font-black"
+src/pages/AdminDashboard.tsx:1357:                  className="rounded-xl border-white/10 bg-white/5 h-8 text-[10px] font-black"
+src/pages/AdminDashboard.tsx:1455:          bg="bg-emerald-500/10" 
+src/pages/AdminDashboard.tsx:1456:          color="text-emerald-400" 
+src/pages/AdminDashboard.tsx:1468:          <Button variant="outline" size="icon" onClick={refetch} className="h-12 w-12 rounded-2xl border-white/10 bg-white/5 shadow-xl" disabled={loading}>
+src/pages/AdminDashboard.tsx:1474:      <Card className="glass-card shadow-2xl border-white/10 overflow-hidden">
+src/pages/AdminDashboard.tsx:1475:        <div className="p-4 border-b border-white/5 bg-white/5 flex flex-col md:flex-row gap-3">
+src/pages/AdminDashboard.tsx:1477:            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/20 group-focus-within:text-primary transition-colors" />
+src/pages/AdminDashboard.tsx:1482:              className="bg-black/40 border-white/5 rounded-xl h-12 pl-12 focus:ring-primary/20"
+src/pages/AdminDashboard.tsx:1486:            <SelectTrigger className="bg-black/40 border-white/5 rounded-xl h-12 w-full md:w-[200px] text-xs font-bold">
+src/pages/AdminDashboard.tsx:1490:            <SelectContent className="bg-black border-white/10">
+src/pages/AdminDashboard.tsx:1507:                <div key={s.id} className="p-4 sm:p-5 hover:bg-white/[0.02] transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 group">
+src/pages/AdminDashboard.tsx:1509:                    <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 relative">
+src/pages/AdminDashboard.tsx:1511:                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-black animate-pulse" />
+src/pages/AdminDashboard.tsx:1515:                        <span className="text-sm font-black text-white">{license?.user_name || license?.client_email || "Usuário Desconhecido"}</span>
+src/pages/AdminDashboard.tsx:1516:                        <Badge variant="outline" className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20 text-[8px] font-black uppercase tracking-widest px-1.5 h-4">ONLINE</Badge>
+src/pages/AdminDashboard.tsx:1521:                        <span className="text-[10px] text-white/20 font-mono flex items-center gap-1">
+src/pages/AdminDashboard.tsx:1525:                        <span className="text-[10px] text-white/20 font-mono hidden sm:inline">• ID: {s.session_id.substring(0, 12)}...</span>
+src/pages/AdminDashboard.tsx:1529:                  <div className="flex items-center justify-end gap-2 border-t border-white/5 sm:border-0 pt-3 sm:pt-0">
+src/pages/AdminDashboard.tsx:1547:                <Activity className="h-10 w-10 text-white/10 mx-auto mb-4" />
+src/pages/AdminDashboard.tsx:1548:                <p className="text-sm font-black text-white/20 uppercase tracking-widest">
+src/pages/AdminDashboard.tsx:1556:            <div className="p-4 border-t border-white/5 flex items-center justify-between bg-black/20">
+src/pages/AdminDashboard.tsx:1557:              <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
+src/pages/AdminDashboard.tsx:1566:                  className="rounded-xl border-white/10 bg-white/5 h-8 text-[10px] font-black"
+src/pages/AdminDashboard.tsx:1575:                  className="rounded-xl border-white/10 bg-white/5 h-8 text-[10px] font-black"
+src/pages/AdminDashboard.tsx:1626:    <Card className="glass-card shadow-2xl border-white/10">
+src/pages/AdminDashboard.tsx:1634:        <div className="space-y-3 mb-6 bg-muted/20 p-5 rounded-3xl border border-white/5 shadow-inner">
+src/pages/AdminDashboard.tsx:1635:          <Input placeholder="Título do Alerta" value={title} onChange={e => setTitle(e.target.value)} className="bg-white/5 border-white/5 rounded-2xl h-11" />
+src/pages/AdminDashboard.tsx:1636:          <Textarea placeholder="Mensagem do anúncio..." value={message} onChange={e => setMessage(e.target.value)} className="bg-white/5 border-white/5 rounded-2xl min-h-[100px]" />
+src/pages/AdminDashboard.tsx:1645:            <div key={n.id} className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 bg-white/10 border border-white/5 rounded-2xl shadow-lg group hover:bg-white/15 transition-all gap-4">
+src/pages/AdminDashboard.tsx:1647:                <span className="font-black text-sm text-white truncate">{n.title}</span>
+src/pages/AdminDashboard.tsx:1649:                <span className="text-[8px] text-white/20 font-bold mt-1 uppercase">{new Date(n.created_at).toLocaleString("pt-BR")}</span>
+src/pages/AdminDashboard.tsx:1714:    <Card className="glass-card shadow-2xl border-white/10">
+src/pages/AdminDashboard.tsx:1722:        <div className="flex gap-3 mb-6 bg-muted/20 p-5 rounded-3xl border border-white/5 shadow-inner">
+src/pages/AdminDashboard.tsx:1723:          <Input placeholder="v1.0.0" value={version} onChange={e => setVersion(e.target.value)} className="bg-white/5 border-white/5 rounded-2xl h-11" />
+src/pages/AdminDashboard.tsx:1730:            <div key={v.id} className="flex justify-between items-center p-4 bg-white/10 border border-white/5 rounded-2xl shadow-lg hover:bg-white/15 transition-all group">
+src/pages/AdminDashboard.tsx:1735:                  <span className="text-xs font-bold text-white">{new Date(v.created_at).toLocaleDateString("pt-BR", { day: '2-digit', month: 'short', year: 'numeric' })}</span>
+src/pages/AdminDashboard.tsx:1767:      <div className="w-full bg-[#030303] rounded-[2.5rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden relative z-10 font-sans ring-1 ring-white/5">
+src/pages/AdminDashboard.tsx:1769:        <div className="p-5 flex items-center justify-between border-b border-white/5 bg-gradient-to-b from-white/5 to-transparent">
+src/pages/AdminDashboard.tsx:1772:              <Activity className="h-4 w-4 text-white" />
+src/pages/AdminDashboard.tsx:1775:              <h3 className="text-sm font-black tracking-tighter text-white">HyperBuild</h3>
+src/pages/AdminDashboard.tsx:1777:                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+src/pages/AdminDashboard.tsx:1778:                <span className="text-[9px] font-black text-emerald-500 tracking-widest uppercase">v{buildVersion} PRO</span>
+src/pages/AdminDashboard.tsx:1783:            <div className="p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer border border-white/5">
+src/pages/AdminDashboard.tsx:1784:              <Settings className="h-3.5 w-3.5 text-white/60" />
+src/pages/AdminDashboard.tsx:1791:          <div className="p-4 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-transparent border border-white/10 shadow-2xl relative overflow-hidden group/info">
+src/pages/AdminDashboard.tsx:1793:              <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/30 text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded-lg backdrop-blur-md">Admin</Badge>
+src/pages/AdminDashboard.tsx:1798:                  <div className="w-full h-full rounded-2xl bg-black flex items-center justify-center overflow-hidden">
+src/pages/AdminDashboard.tsx:1799:                    <User className="h-7 w-7 text-white/80" />
+src/pages/AdminDashboard.tsx:1802:                <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-[#030303] flex items-center justify-center">
+src/pages/AdminDashboard.tsx:1803:                  <CheckCircle2 className="h-3 w-3 text-white" />
+src/pages/AdminDashboard.tsx:1807:                <p className="text-xs font-black text-white/40 uppercase tracking-[0.2em] mb-0.5">Licenciado para</p>
+src/pages/AdminDashboard.tsx:1808:                <h4 className="text-lg font-black text-white leading-none tracking-tight">Admin Principal</h4>
+src/pages/AdminDashboard.tsx:1809:                <p className="text-[10px] text-white/30 font-bold mt-1 flex items-center gap-1.5">
+src/pages/AdminDashboard.tsx:1819:            <div className="p-4 rounded-3xl bg-white/5 border border-white/5 hover:border-orange-500/30 transition-all cursor-pointer group/card active:scale-95">
+src/pages/AdminDashboard.tsx:1820:              <div className="w-8 h-8 rounded-xl bg-orange-500/10 flex items-center justify-center mb-3 group-hover/card:bg-orange-500/20 transition-colors">
+src/pages/AdminDashboard.tsx:1821:                <Copy className="h-4 w-4 text-orange-400" />
+src/pages/AdminDashboard.tsx:1823:              <p className="text-[10px] font-black text-white/40 uppercase tracking-widest">Atalhos</p>
+src/pages/AdminDashboard.tsx:1824:              <p className="text-xs font-bold text-white mt-1">Copiar Token</p>
+src/pages/AdminDashboard.tsx:1826:            <div className="p-4 rounded-3xl bg-white/5 border border-white/5 hover:border-purple-500/30 transition-all cursor-pointer group/card active:scale-95">
+src/pages/AdminDashboard.tsx:1830:              <p className="text-[10px] font-black text-white/40 uppercase tracking-widest">Sessão</p>
+src/pages/AdminDashboard.tsx:1831:              <p className="text-xs font-bold text-white mt-1">Renovar Agora</p>
+src/pages/AdminDashboard.tsx:1836:          <div className="p-4 rounded-3xl bg-black/40 border border-white/5 flex items-center justify-between shadow-inner">
+src/pages/AdminDashboard.tsx:1839:              <span className="text-[10px] font-black text-white/60 uppercase tracking-tighter">Expira em 30d</span>
+src/pages/AdminDashboard.tsx:1842:              <Smartphone className="h-3.5 w-3.5 text-orange-400" />
+src/pages/AdminDashboard.tsx:1843:              <span className="text-[10px] font-black text-white/60 uppercase tracking-tighter">1 Dispositivo</span>
+src/pages/AdminDashboard.tsx:1849:        <div className="p-5 bg-gradient-to-t from-white/5 to-transparent border-t border-white/5 flex items-center justify-between">
+src/pages/AdminDashboard.tsx:1851:            <div className="w-6 h-6 rounded-lg bg-white/5 flex items-center justify-center">
+src/pages/AdminDashboard.tsx:1852:              <Lock className="h-3 w-3 text-white/40" />
+src/pages/AdminDashboard.tsx:1854:            <span className="text-[9px] font-black text-white/30 uppercase tracking-[0.2em]">Criptografia de Ponta</span>
+src/pages/AdminDashboard.tsx:1856:          <Badge className="bg-transparent border-white/10 text-white/40 text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full">Oficial Infinite</Badge>
+src/pages/AdminDashboard.tsx:2108:      <Card className="glass-card shadow-2xl border-white/10 bg-black/40 backdrop-blur-3xl rounded-[2.5rem] overflow-hidden">
+src/pages/AdminDashboard.tsx:2112:            <div className="p-2 rounded-xl bg-white/5">
+src/pages/AdminDashboard.tsx:2113:              <Activity className="h-5 w-5 text-orange-400 animate-pulse" />
+src/pages/AdminDashboard.tsx:2116:          <CardTitle className="text-3xl font-black tracking-tight text-white drop-shadow-sm">Build & Deploy</CardTitle>
+src/pages/AdminDashboard.tsx:2117:          <CardDescription className="text-white/40 font-bold uppercase tracking-widest text-[10px] mt-2">Gere o pacote oficial da sua extensão</CardDescription>
+src/pages/AdminDashboard.tsx:2120:          <div className="p-6 rounded-3xl bg-white/5 border border-white/5 space-y-4">
+src/pages/AdminDashboard.tsx:2122:              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+src/pages/AdminDashboard.tsx:2123:                <CheckCircle2 className="h-5 w-5 text-emerald-500" />
+src/pages/AdminDashboard.tsx:2126:                <p className="text-xs font-black text-white/60 uppercase tracking-widest">Status do Core</p>
+src/pages/AdminDashboard.tsx:2127:                <p className="text-sm font-bold text-white">Pronto para Produção</p>
+src/pages/AdminDashboard.tsx:2135:                <p className="text-xs font-black text-white/60 uppercase tracking-widest">Segurança</p>
+src/pages/AdminDashboard.tsx:2136:                <p className="text-sm font-bold text-white">Ofuscação opcional integrada</p>
+src/pages/AdminDashboard.tsx:2144:                <p className="text-xs font-black text-white/60 uppercase tracking-widest">Arquivos no Bundle</p>
+src/pages/AdminDashboard.tsx:2145:                <p className="text-sm font-bold text-white">18 assets · v{buildVersion}</p>
+src/pages/AdminDashboard.tsx:2149:              <div className="flex items-center gap-3 pt-2 border-t border-white/5">
+src/pages/AdminDashboard.tsx:2150:                <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center">
+src/pages/AdminDashboard.tsx:2151:                  <Activity className="h-5 w-5 text-orange-400" />
+src/pages/AdminDashboard.tsx:2154:                  <p className="text-xs font-black text-white/60 uppercase tracking-widest">Último Build</p>
+src/pages/AdminDashboard.tsx:2155:                  <p className="text-sm font-bold text-white">
+src/pages/AdminDashboard.tsx:2165:            <div className="p-5 rounded-3xl bg-black/40 border border-white/5 space-y-3">
+src/pages/AdminDashboard.tsx:2167:                <span className="text-white/60">
+src/pages/AdminDashboard.tsx:2172:              <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+src/pages/AdminDashboard.tsx:2176:                <span className="text-emerald-400">{okCount} ok</span>
+src/pages/AdminDashboard.tsx:2177:                {errCount > 0 && <span className="text-red-400">{errCount} erro</span>}
+src/pages/AdminDashboard.tsx:2178:                <span className="text-white/40">{allFiles.length - okCount - errCount} pendente</span>
+src/pages/AdminDashboard.tsx:2206:          <div className="text-[10px] text-white/40 p-4 bg-black/40 rounded-2xl border border-white/5 leading-relaxed font-bold uppercase tracking-wider text-center">
+src/pages/AdminDashboard.tsx:2207:            <span className="text-orange-400">Build</span>: código nu com credenciais injetadas (debug / dev).
+src/pages/AdminDashboard.tsx:2209:            <span className="text-purple-400">Ofuscado</span>: build + javascript-obfuscator (heavy nos arquivos, light no <code className="text-white/60">background.js</code> por compatibilidade MV3). Use para produção.
+src/pages/AdminDashboard.tsx:2219:                <p className="text-xs font-black text-white/80 uppercase tracking-widest">Ofuscar Arquivo Próprio</p>
+src/pages/AdminDashboard.tsx:2220:                <p className="text-[10px] text-white/40 font-bold uppercase tracking-wider mt-0.5">Envie um <code className="text-purple-300">.zip</code> da extensão ou um <code className="text-purple-300">.js</code> avulso</p>
+src/pages/AdminDashboard.tsx:2229:                  : "border-white/15 hover:border-purple-400/60 hover:bg-purple-500/5"
+src/pages/AdminDashboard.tsx:2235:                  <span className="text-[11px] font-black text-white/80 uppercase tracking-widest">Ofuscando {uploadCurrent || "..."}</span>
+src/pages/AdminDashboard.tsx:2240:                  <Upload className="h-6 w-6 text-white/60" />
+src/pages/AdminDashboard.tsx:2241:                  <span className="text-[11px] font-black text-white/80 uppercase tracking-widest">Clique para selecionar</span>
+src/pages/AdminDashboard.tsx:2242:                  <span className="text-[10px] text-white/40 font-bold uppercase tracking-wider">.zip ou .js — máx. 25 MB</span>
+src/pages/AdminDashboard.tsx:2256:              <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+src/pages/AdminDashboard.tsx:2269:                <p className="text-xs font-black text-white/80 uppercase tracking-widest">Reseller</p>
+src/pages/AdminDashboard.tsx:2270:                <p className="text-[10px] text-white/40 font-bold uppercase tracking-wider mt-0.5">
+src/pages/AdminDashboard.tsx:2299:            <p className="text-[10px] text-white/40 font-bold uppercase tracking-wider text-center leading-relaxed">
+src/pages/AdminDashboard.tsx:2300:              Substitui <span className="text-white/60">HyperBuild</span> por <span className="text-cyan-300">Coldlov - M1</span> em todo o bundle (manifest, UI, strings).
+src/pages/AdminDashboard.tsx:2308:          <h3 className="text-xl font-black text-white uppercase tracking-tighter">Preview em Tempo Real</h3>
+src/pages/AdminDashboard.tsx:2309:          <p className="text-white/40 font-bold uppercase tracking-widest text-[9px]">Como seus usuários verão o HyperBuild</p>
+src/pages/AdminDashboard.tsx:2437:    <Card className="glass-card border-white/5 bg-black/40 backdrop-blur-2xl rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden">
+src/pages/AdminDashboard.tsx:2438:      <CardHeader className="border-b border-white/5 pb-4 sm:pb-6">
+src/pages/AdminDashboard.tsx:2441:            <CardTitle className="text-lg sm:text-xl font-black text-white flex items-center gap-2">
+src/pages/AdminDashboard.tsx:2444:            <CardDescription className="text-white/40 font-bold uppercase tracking-widest text-[8px] sm:text-[9px] mt-1">
+src/pages/AdminDashboard.tsx:2449:            <Button variant="outline" size="sm" onClick={() => refetch()} className="flex-1 sm:flex-none bg-white/5 border-white/10 hover:bg-white/10 text-[8px] sm:text-[9px] font-black uppercase tracking-widest h-9 sm:h-10 px-3 sm:px-4 rounded-xl">
+src/pages/AdminDashboard.tsx:2458:            <div className="p-6 rounded-[2rem] bg-white/5 border border-white/10 text-white/10">
+src/pages/AdminDashboard.tsx:2462:              <h3 className="text-lg font-black text-white uppercase tracking-tight">Nenhum pagamento</h3>
+src/pages/AdminDashboard.tsx:2463:              <p className="text-white/30 text-xs font-bold uppercase tracking-widest">Aguardando as primeiras vendas</p>
+src/pages/AdminDashboard.tsx:2470:              <div key={payment.id} className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+src/pages/AdminDashboard.tsx:2477:                      <p className="font-bold text-white text-sm">{payment.customer_name}</p>
+src/pages/AdminDashboard.tsx:2483:                      <p className="text-[10px] text-white/40 flex items-center gap-1.5"><Smartphone className="w-3 h-3" /> {payment.customer_number}</p>
+src/pages/AdminDashboard.tsx:2484:                      <p className="text-[10px] text-white/40 flex items-center gap-1.5 hidden sm:flex"><User className="w-3 h-3" /> {payment.customer_email}</p>
+src/pages/AdminDashboard.tsx:2489:                <div className="flex items-center justify-between sm:justify-end gap-3 pt-3 sm:pt-0 border-t sm:border-0 border-white/5">
+src/pages/AdminDashboard.tsx:2491:                    payment.payment_status === "completed" ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" : 
+src/pages/AdminDashboard.tsx:2493:                    "bg-orange-500/10 text-orange-400 border-orange-500/20"
+src/pages/AdminDashboard.tsx:2513:                        <Button variant="outline" size="sm" onClick={() => handleEdit(payment)} className="bg-white/5 border-white/10 hover:bg-white/10 text-[10px] font-black uppercase tracking-widest h-9 rounded-xl">
+src/pages/AdminDashboard.tsx:2517:                      <DialogContent className="glass-card border-white/10 bg-black/95 backdrop-blur-3xl text-white rounded-[1.5rem] sm:rounded-[2rem] max-w-[calc(100vw-2rem)] sm:max-w-lg p-4 sm:p-6">
+src/pages/AdminDashboard.tsx:2524:                          <div className="grid grid-cols-2 gap-3 sm:gap-4 bg-white/5 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/5">
+src/pages/AdminDashboard.tsx:2526:                              <p className="text-[8px] sm:text-[9px] font-black text-white/30 uppercase tracking-widest">Cliente</p>
+src/pages/AdminDashboard.tsx:2527:                              <p className="text-xs sm:text-sm font-bold text-white truncate">{payment.customer_name}</p>
+src/pages/AdminDashboard.tsx:2530:                              <p className="text-[8px] sm:text-[9px] font-black text-white/30 uppercase tracking-widest">Plano</p>
+src/pages/AdminDashboard.tsx:2536:                              <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-white/50 px-1">Chave de Licença</label>
+src/pages/AdminDashboard.tsx:2543:                                  className="h-10 sm:h-12 pl-11 sm:pl-12 rounded-xl bg-white/5 border-white/10 focus:border-primary/40 transition-all text-xs sm:text-sm font-mono"
+src/pages/AdminDashboard.tsx:2548:                              <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-white/50 px-1">Link dos Arquivos</label>
+src/pages/AdminDashboard.tsx:2555:                                  className="h-10 sm:h-12 pl-11 sm:pl-12 rounded-xl bg-white/5 border-white/10 focus:border-primary/40 transition-all text-xs sm:text-sm"
+src/pages/AdminDashboard.tsx:2564:                            <Button variant="outline" onClick={() => sendToWhatsApp(payment)} className="h-11 sm:h-12 rounded-xl font-black uppercase tracking-widest text-[10px] sm:text-xs bg-green-500/10 border-green-500/20 text-green-400 hover:bg-green-500/20">
+src/pages/AdminDashboard.tsx:2571:                    <Button variant="ghost" size="icon" onClick={() => sendToWhatsApp(payment)} className="h-9 w-9 rounded-xl bg-green-500/10 text-green-400 hover:bg-green-500/20 border border-green-500/10">
+src/pages/AdminDashboard.tsx:2588:    active: "bg-green-500/40 text-green-300 border-green-500/50 backdrop-blur-md",
+src/pages/AdminDashboard.tsx:2590:    expired: "bg-red-500/40 text-red-300 border-red-500/50 backdrop-blur-md",
+src/pages/AdminDashboard.tsx:2630:    <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-[100] bg-black/80 backdrop-blur-3xl border-t border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.6)] overflow-hidden pb-safe">
+src/pages/AdminDashboard.tsx:2643:               className="flex flex-col items-center gap-1 py-1 px-2 text-white/40 hover:text-white transition-colors"
+src/pages/AdminDashboard.tsx:2659:                   isActive ? "text-primary scale-110" : "text-white/40"
+src/pages/AdminDashboard.tsx:2685:               className="flex flex-col items-center gap-1 py-1 px-2 text-white/40 hover:text-white transition-colors"
+src/components/shared/ProtectedRoute.tsx:15:      <div className="min-h-screen bg-black flex items-center justify-center">
+src/components/ResellersTab.tsx:110:    <Card className="glass-card border-white/5 bg-black/40 backdrop-blur-2xl rounded-[2rem] overflow-hidden">
+src/components/ResellersTab.tsx:113:          <CardTitle className="text-2xl font-black text-white">Revendedores</CardTitle>
+src/components/ResellersTab.tsx:114:          <CardDescription className="text-white/40 font-bold uppercase tracking-widest text-[10px]">Gestão de tokens e acessos</CardDescription>
+src/components/ResellersTab.tsx:127:              <Button className="flex-1 sm:flex-none rounded-xl bg-primary hover:bg-primary/90 text-white font-black text-[10px] uppercase tracking-widest h-10 px-4">
+src/components/ResellersTab.tsx:131:            <DialogContent className="bg-black/95 border-white/10 text-white rounded-[2rem] max-w-md">
+src/components/ResellersTab.tsx:134:                <DialogDescription className="text-white/40 font-bold uppercase tracking-widest text-[10px]">Cadastre um novo revendedor e defina seus tokens iniciais.</DialogDescription>
+src/components/ResellersTab.tsx:138:                  <label className="text-[10px] font-black uppercase tracking-widest text-white/50 px-1">E-mail do Revendedor</label>
+src/components/ResellersTab.tsx:140:                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/20 group-focus-within:text-primary transition-colors" />
+src/components/ResellersTab.tsx:145:                      className="h-12 pl-12 rounded-xl bg-white/5 border-white/10"
+src/components/ResellersTab.tsx:151:                  <label className="text-[10px] font-black uppercase tracking-widest text-white/50 px-1">Chave de Acesso ao Painel</label>
+src/components/ResellersTab.tsx:154:                      <Key className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/20 group-focus-within:text-primary transition-colors" />
+src/components/ResellersTab.tsx:159:                        className="h-12 pl-12 rounded-xl bg-white/5 border-white/10 font-mono text-xs"
+src/components/ResellersTab.tsx:164:                      className="h-12 w-12 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 p-0"
+src/components/ResellersTab.tsx:174:                    <Input type="number" value={newTokens7d} onChange={(e) => setNewTokens7d(parseInt(e.target.value) || 0)} className="h-11 rounded-xl bg-white/5 border-white/10" />
+src/components/ResellersTab.tsx:177:                    <label className="text-[10px] font-black uppercase tracking-widest text-emerald-400/70 px-1">Tokens Mensais</label>
+src/components/ResellersTab.tsx:178:                    <Input type="number" value={newTokensMonthly} onChange={(e) => setNewTokensMonthly(parseInt(e.target.value) || 0)} className="h-11 rounded-xl bg-white/5 border-white/10" />
+src/components/ResellersTab.tsx:181:                    <label className="text-[10px] font-black uppercase tracking-widest text-orange-400/70 px-1">Tokens Anuais</label>
+src/components/ResellersTab.tsx:182:                    <Input type="number" value={newTokensAnnual} onChange={(e) => setNewTokensAnnual(parseInt(e.target.value) || 0)} className="h-11 rounded-xl bg-white/5 border-white/10" />
+src/components/ResellersTab.tsx:186:                     <Input type="number" value={newTokensLifetime} onChange={(e) => setNewTokensLifetime(parseInt(e.target.value) || 0)} className="h-11 rounded-xl bg-white/5 border-white/10" />
+src/components/ResellersTab.tsx:190:                     <Input type="number" value={newTokensDaily} onChange={(e) => setNewTokensDaily(parseInt(e.target.value) || 0)} className="h-11 rounded-xl bg-white/5 border-white/10" />
+src/components/ResellersTab.tsx:206:          <div className="text-center py-12 text-white/20 font-black uppercase tracking-widest text-xs">Nenhum revendedor encontrado</div>
+src/components/ResellersTab.tsx:211:                <tr className="border-b border-white/5 text-left">
+src/components/ResellersTab.tsx:212:                  <th className="pb-4 font-black uppercase tracking-widest text-[10px] text-white/30 px-4">Revendedor</th>
+src/components/ResellersTab.tsx:213:                  <th className="pb-4 font-black uppercase tracking-widest text-[10px] text-white/30 px-4">Chave de Licença</th>
+src/components/ResellersTab.tsx:214:                  <th className="pb-4 font-black uppercase tracking-widest text-[10px] text-white/30 px-4">Saldo de Tokens</th>
+src/components/ResellersTab.tsx:215:                  <th className="pb-4 font-black uppercase tracking-widest text-[10px] text-white/30 px-4 text-right">Ações</th>
+src/components/ResellersTab.tsx:220:                  <tr key={reseller.id} className="group hover:bg-white/[0.02] transition-colors">
+src/components/ResellersTab.tsx:227:                          <p className="text-sm font-bold text-white truncate">{reseller.email || reseller.profiles?.full_name || "Revendedor"}</p>
+src/components/ResellersTab.tsx:228:                          <p className="text-[10px] font-medium text-white/30 font-mono truncate">{reseller.user_id || "Acesso por Chave"}</p>
+src/components/ResellersTab.tsx:234:                        <Badge variant="outline" className="bg-white/5 border-white/10 font-mono text-[10px] text-white/60 px-3 py-1">
+src/components/ResellersTab.tsx:241:                            className="h-7 w-7 rounded-lg hover:bg-white/10"
+src/components/ResellersTab.tsx:255:                        <Badge className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20 font-mono text-[9px] px-1.5 py-0 h-5">M: {reseller.tokens_monthly}</Badge>
+src/components/ResellersTab.tsx:256:                        <Badge className="bg-orange-500/10 text-orange-400 border-orange-500/20 font-mono text-[9px] px-1.5 py-0 h-5">A: {reseller.tokens_annual}</Badge>
+src/components/ResellersTab.tsx:273:                          <DialogContent className="bg-black/95 border-white/10 text-white rounded-[2rem] max-w-2xl max-h-[80vh] overflow-y-auto">
+src/components/ResellersTab.tsx:276:                              <DialogDescription className="text-white/40 font-bold uppercase tracking-widest text-[10px]">Todas as licenças geradas por este revendedor</DialogDescription>
+src/components/ResellersTab.tsx:280:                                <div className="text-center py-12 text-white/20 font-black uppercase tracking-widest text-xs">Nenhuma licença encontrada</div>
+src/components/ResellersTab.tsx:284:                                    <div key={l.id} className="p-4 rounded-2xl bg-white/5 border border-white/10 flex flex-col gap-3">
+src/components/ResellersTab.tsx:288:                                          <p className="text-[10px] text-white/40 uppercase font-black tracking-widest">{l.user_name || "Sem nome"}</p>
+src/components/ResellersTab.tsx:292:                                            l.status === 'active' ? 'border-emerald-500/30 text-emerald-400' :
+src/components/ResellersTab.tsx:293:                                            l.status === 'revoked' ? 'border-red-500/30 text-red-400' :
+src/components/ResellersTab.tsx:294:                                            'border-white/10 text-white/40'
+src/components/ResellersTab.tsx:301:                                            className="h-8 w-8 hover:bg-white/10"
+src/components/ResellersTab.tsx:312:                                      <div className="grid grid-cols-3 gap-2 pt-2 border-t border-white/5">
+src/components/ResellersTab.tsx:314:                                          <span className="text-[8px] font-black uppercase text-white/30 tracking-widest">Prompts</span>
+src/components/ResellersTab.tsx:315:                                          <span className="text-xs font-black text-white">{l.prompts_count || 0}</span>
+src/components/ResellersTab.tsx:318:                                          <span className="text-[8px] font-black uppercase text-white/30 tracking-widest">Tempo Edição</span>
+src/components/ResellersTab.tsx:319:                                          <span className="text-xs font-black text-white">
+src/components/ResellersTab.tsx:324:                                          <span className="text-[8px] font-black uppercase text-white/30 tracking-widest">Tempo Restante</span>
+src/components/ResellersTab.tsx:326:                                            l.expires_at && new Date(l.expires_at).getTime() < Date.now() ? 'text-red-400' : 'text-emerald-400'
+src/components/ResellersTab.tsx:365:                          className="h-9 w-9 rounded-xl bg-red-500/10 text-red-400 hover:bg-red-500/20 border border-red-500/10"
+src/components/ResellersTab.tsx:380:        <DialogContent className="bg-black/95 border-white/10 text-white rounded-[2rem] max-w-sm">
+src/components/ResellersTab.tsx:383:            <DialogDescription className="text-white/40 font-bold uppercase tracking-widest text-[10px]">
+src/components/ResellersTab.tsx:389:              <label className="text-[10px] font-black uppercase tracking-widest text-white/50 px-1">Tipo de Token</label>
+src/components/ResellersTab.tsx:391:                <SelectTrigger className="h-12 bg-white/5 border-white/10 rounded-xl">
+src/components/ResellersTab.tsx:394:                <SelectContent className="bg-black border-white/10 text-white rounded-xl">
+src/components/ResellersTab.tsx:404:              <label className="text-[10px] font-black uppercase tracking-widest text-white/50 px-1">Quantidade</label>
+src/components/ResellersTab.tsx:406:                <Coins className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/20 group-focus-within:text-primary transition-colors" />
+src/components/ResellersTab.tsx:412:                  className="h-12 pl-12 rounded-xl bg-white/5 border-white/10"
+src/components/RechargeTokensTab.tsx:34:      <Card className="glass-card border-white/5 bg-black/40 backdrop-blur-2xl rounded-[2rem] overflow-hidden">
+src/components/RechargeTokensTab.tsx:36:          <CardTitle className="text-2xl font-black text-white flex items-center gap-2">
+src/components/RechargeTokensTab.tsx:39:          <CardDescription className="text-white/40 font-bold uppercase tracking-widest text-[10px]">
+src/components/RechargeTokensTab.tsx:49:                  <SelectTrigger className="h-14 rounded-2xl bg-black/40 border-white/5 focus:ring-primary/20 transition-all text-white font-bold">
+src/components/RechargeTokensTab.tsx:52:                  <SelectContent className="rounded-2xl border-white/10 bg-black/90 backdrop-blur-3xl text-white">
+src/components/RechargeTokensTab.tsx:71:                    className="h-14 pl-12 rounded-2xl bg-black/40 border-white/5 focus:ring-primary/20 transition-all text-white font-bold"
+src/components/RechargeTokensTab.tsx:78:                  <span className="text-[10px] font-black uppercase tracking-widest text-white/40">Preço por Token</span>
+src/components/RechargeTokensTab.tsx:79:                  <span className="text-lg font-black text-white">R$ {pricePerToken.toFixed(2)}</span>
+src/components/RechargeTokensTab.tsx:81:                <div className="flex justify-between items-center pt-2 border-t border-white/5">
+src/components/RechargeTokensTab.tsx:91:                className="w-full h-16 rounded-[1.5rem] font-black text-lg uppercase tracking-widest bg-primary hover:bg-primary/90 text-white shadow-2xl shadow-primary/20 active:scale-95 transition-all"
+src/components/RechargeTokensTab.tsx:100:                  <div className="p-8 rounded-[2.5rem] bg-white text-black flex flex-col items-center gap-6 shadow-2xl relative overflow-hidden group">
+src/components/RechargeTokensTab.tsx:102:                      <Zap className="w-20 h-20 text-black" />
+src/components/RechargeTokensTab.tsx:107:                      <p className="text-xs font-bold text-black/60 uppercase tracking-widest">Realize o pagamento para ativar seus tokens</p>
+src/components/RechargeTokensTab.tsx:111:                      <div className="w-48 h-48 bg-white border border-gray-100 rounded-2xl flex items-center justify-center shadow-inner p-2">
+src/components/RechargeTokensTab.tsx:115:                          <p className="text-[10px] font-black uppercase text-black/40">Clique no botão abaixo para pagar</p>
+src/components/RechargeTokensTab.tsx:120:                        <p className="text-[10px] font-black uppercase text-black/40 mb-1">Forma de Pagamento</p>
+src/components/RechargeTokensTab.tsx:135:                  <div className="p-10 rounded-full bg-white/5 border border-white/10 inline-block">
+src/components/RechargeTokensTab.tsx:136:                    <CreditCard className="w-20 h-20 text-white" />
+src/components/RechargeTokensTab.tsx:138:                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white">Aguardando finalização do pedido</p>
+src/components/PilantrinhasTab.tsx:108:    <Card className={cn("glass-card border-white/10 overflow-hidden relative", accent)}>
+src/components/PilantrinhasTab.tsx:110:        <div className={cn("p-3 rounded-2xl bg-white/10 border border-white/10", pulse && "animate-pulse")}>{icon}</div>
+src/components/PilantrinhasTab.tsx:112:          <div className="text-[10px] font-black uppercase tracking-widest text-white/60">{label}</div>
+src/components/PilantrinhasTab.tsx:114:          {hint && <div className="text-[10px] text-white/40 mt-1 truncate">{hint}</div>}
+src/components/PilantrinhasTab.tsx:402:              <div className="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg p-1">
+src/components/PilantrinhasTab.tsx:406:                      periodH === p.h ? "bg-primary text-primary-foreground" : "text-white/60 hover:text-white")}>
+src/components/PilantrinhasTab.tsx:451:        <Card className="glass-card border-white/10">
+src/components/PilantrinhasTab.tsx:452:          <CardHeader className="pb-2"><CardTitle className="text-xs uppercase tracking-widest text-white/60">Severidade</CardTitle></CardHeader>
+src/components/PilantrinhasTab.tsx:468:        <Card className="glass-card border-white/10">
+src/components/PilantrinhasTab.tsx:469:          <CardHeader className="pb-2"><CardTitle className="text-xs uppercase tracking-widest text-white/60">Top 5 eventos</CardTitle></CardHeader>
+src/components/PilantrinhasTab.tsx:487:        <Card className="glass-card border-white/10">
+src/components/PilantrinhasTab.tsx:488:          <CardHeader className="pb-2"><CardTitle className="text-xs uppercase tracking-widest text-white/60">Histórico ({periodH >= 24 ? `${Math.floor(periodH / 24)}d` : `${periodH}h`})</CardTitle></CardHeader>
+src/components/PilantrinhasTab.tsx:516:        <TabsList className="bg-white/5 border border-white/10">
+src/components/PilantrinhasTab.tsx:525:          <Card className="glass-card border-white/10">
+src/components/PilantrinhasTab.tsx:531:                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" />
+src/components/PilantrinhasTab.tsx:543:                  <span className="text-[10px] font-black uppercase tracking-widest text-white/40">Severidade:</span>
+src/components/PilantrinhasTab.tsx:547:                        severities.has(s) ? SEVERITY_STYLES[s] : "border-white/10 text-white/40 hover:text-white/70")}>
+src/components/PilantrinhasTab.tsx:553:                  <span className="text-[10px] font-black uppercase tracking-widest text-white/40">Padrão:</span>
+src/components/PilantrinhasTab.tsx:559:                          : "border-white/10 text-white/40 hover:text-white/70")}>
+src/components/PilantrinhasTab.tsx:566:                    <span className="text-[10px] font-black uppercase tracking-widest text-white/40 whitespace-nowrap">Risk {riskRange[0]}–{riskRange[1]}</span>
+src/components/PilantrinhasTab.tsx:571:                    <Label htmlFor="hideFp" className="text-[10px] font-black uppercase tracking-widest text-white/60">Ocultar FP</Label>
+src/components/PilantrinhasTab.tsx:592:                <div className="flex items-center justify-center py-16 text-white/40">
+src/components/PilantrinhasTab.tsx:596:                <div className="flex flex-col items-center justify-center py-16 text-white/40">
+src/components/PilantrinhasTab.tsx:602:                <div className="rounded-xl border border-white/10 overflow-x-auto">
+src/components/PilantrinhasTab.tsx:605:                      <TableRow className="hover:bg-transparent border-white/10">
+src/components/PilantrinhasTab.tsx:623:                          <TableRow className={cn("border-white/10 hover:bg-white/5 cursor-pointer", g.risk_score >= 75 && "bg-destructive/5")}
+src/components/PilantrinhasTab.tsx:650:                                : <span className="text-white/30">—</span>}
+src/components/PilantrinhasTab.tsx:652:                            <TableCell className="font-mono text-[11px] text-white/60">
+src/components/PilantrinhasTab.tsx:658:                              ) : <span className="text-white/30">—</span>}
+src/components/PilantrinhasTab.tsx:660:                            <TableCell className="font-mono text-[11px] text-white/60">
+src/components/PilantrinhasTab.tsx:666:                              ) : <span className="text-white/30">—</span>}
+src/components/PilantrinhasTab.tsx:680:                              <Badge className="bg-white/10 text-white border-white/20 font-black">{g.cnt}</Badge>
+src/components/PilantrinhasTab.tsx:682:                            <TableCell className="text-[11px] text-white/50" title={new Date(g.last_seen).toLocaleString("pt-BR")}>
+src/components/PilantrinhasTab.tsx:721:                            <TableRow className="border-white/10 bg-background/60">
+src/components/PilantrinhasTab.tsx:724:                                  <div className="flex items-center gap-2 text-white/40 text-xs">
+src/components/PilantrinhasTab.tsx:729:                                    <div className="text-[10px] font-black uppercase tracking-widest text-white/40">
+src/components/PilantrinhasTab.tsx:733:                                      <div key={ev.id} className="rounded-lg border border-white/5 bg-white/5 p-3 space-y-1">
+src/components/PilantrinhasTab.tsx:739:                                            <span className="font-mono text-xs text-white/80">{ev.event_type}</span>
+src/components/PilantrinhasTab.tsx:740:                                            {ev.endpoint && <span className="font-mono text-[10px] text-white/40">@ {ev.endpoint}</span>}
+src/components/PilantrinhasTab.tsx:742:                                          <span className="text-[10px] text-white/40">{new Date(ev.created_at).toLocaleString("pt-BR")}</span>
+src/components/PilantrinhasTab.tsx:745:                                          <div className="text-[10px] text-white/40 font-mono">
+src/components/PilantrinhasTab.tsx:751:                                          <pre className="text-[10px] text-white/50 bg-background/60 p-2 rounded overflow-x-auto">
+src/components/PilantrinhasTab.tsx:771:                <div className="flex items-center justify-between text-xs text-white/60">
+src/components/PilantrinhasTab.tsx:790:                <div key={r.device_id} className="rounded-lg border border-white/10 bg-white/5 p-3 space-y-1">
+src/components/PilantrinhasTab.tsx:801:                  <div className="text-[10px] text-white/40">{r.count} eventos</div>
+src/components/PilantrinhasTab.tsx:809:                <div key={r.ip} className="rounded-lg border border-white/10 bg-white/5 p-3 space-y-1">
+src/components/PilantrinhasTab.tsx:820:                  <div className="text-[10px] text-white/40">{r.count} eventos</div>
+src/components/PilantrinhasTab.tsx:828:                <div key={r.ip} className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 p-3">
+src/components/PilantrinhasTab.tsx:832:                    <Badge className="bg-white/10 border-white/20">{r.count}</Badge>
+src/components/PilantrinhasTab.tsx:839:                <div key={r.device_id} className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 p-3">
+src/components/PilantrinhasTab.tsx:843:                    <Badge className="bg-white/10 border-white/20">{r.count}</Badge>
+src/components/PilantrinhasTab.tsx:853:          <Card className="glass-card border-white/10">
+src/components/PilantrinhasTab.tsx:856:                <div className="flex items-center justify-center py-12 text-white/40">
+src/components/PilantrinhasTab.tsx:860:                <div className="text-center py-12 text-white/40 text-xs">Nenhum identificador banido</div>
+src/components/PilantrinhasTab.tsx:864:                    <TableRow className="border-white/10 hover:bg-transparent">
+src/components/PilantrinhasTab.tsx:874:                      <TableRow key={b.id} className="border-white/10 hover:bg-white/5">
+src/components/PilantrinhasTab.tsx:877:                        <TableCell className="text-xs text-white/60">{b.reason || "—"}</TableCell>
+src/components/PilantrinhasTab.tsx:878:                        <TableCell className="text-[11px] text-white/50">{new Date(b.created_at).toLocaleString("pt-BR")}</TableCell>
+src/components/PilantrinhasTab.tsx:896:          <Card className="glass-card border-white/10">
+src/components/PilantrinhasTab.tsx:899:                <div className="flex items-center justify-center py-12 text-white/40">
+src/components/PilantrinhasTab.tsx:903:                <div className="text-center py-12 text-white/40 text-xs">Nenhum falso positivo marcado</div>
+src/components/PilantrinhasTab.tsx:907:                    <TableRow className="border-white/10 hover:bg-transparent">
+src/components/PilantrinhasTab.tsx:917:                      <TableRow key={r.id} className="border-white/10 hover:bg-white/5">
+src/components/PilantrinhasTab.tsx:919:                        <TableCell className="text-xs text-white/60">{r.note || "—"}</TableCell>
+src/components/PilantrinhasTab.tsx:920:                        <TableCell className="text-[11px] text-white/50">{r.admin_email || "—"}</TableCell>
+src/components/PilantrinhasTab.tsx:921:                        <TableCell className="text-[11px] text-white/50">{new Date(r.created_at).toLocaleString("pt-BR")}</TableCell>
+src/components/PilantrinhasTab.tsx:940:        <AlertDialogContent className="glass-card border-white/10">
+src/components/PilantrinhasTab.tsx:943:            <AlertDialogDescription className="text-white/60">
+src/components/PilantrinhasTab.tsx:992:    <div className="h-full flex items-center justify-center text-[11px] text-white/40">
+src/components/PilantrinhasTab.tsx:1002:    <Card className="glass-card border-white/10">
+src/components/PilantrinhasTab.tsx:1003:      <CardHeader className="pb-2"><CardTitle className="text-xs uppercase tracking-widest text-white/60">{title}</CardTitle></CardHeader>
+src/components/PilantrinhasTab.tsx:1006:          <div className="flex items-center justify-center py-8 text-white/40">
+src/components/PilantrinhasTab.tsx:1010:          <div className="text-center py-8 text-[11px] text-white/40">Nada encontrado no período</div>
+src/components/PackagesTab.tsx:68:    <Card className="glass-card border-white/5 bg-black/40 backdrop-blur-2xl rounded-[2rem] overflow-hidden">
+src/components/PackagesTab.tsx:71:          <CardTitle className="text-2xl font-black text-white">Pacotes de Tokens</CardTitle>
+src/components/PackagesTab.tsx:72:          <CardDescription className="text-white/40 font-bold uppercase tracking-widest text-[10px]">Configuração de pacotes para venda aos revendedores</CardDescription>
+src/components/PackagesTab.tsx:76:            <Button className="rounded-xl bg-primary hover:bg-primary/90 text-white font-black text-[10px] uppercase tracking-widest h-10 px-4">
+src/components/PackagesTab.tsx:80:          <DialogContent className="bg-black/95 border-white/10 text-white rounded-[2rem] max-w-md">
+src/components/PackagesTab.tsx:83:              <DialogDescription className="text-white/40 font-bold uppercase tracking-widest text-[10px]">Crie um novo pacote de tokens para venda.</DialogDescription>
+src/components/PackagesTab.tsx:87:                <label className="text-[10px] font-black uppercase tracking-widest text-white/50 px-1">Nome do Pacote</label>
+src/components/PackagesTab.tsx:89:                  <Tag className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/20 group-focus-within:text-primary transition-colors" />
+src/components/PackagesTab.tsx:94:                    className="h-12 pl-12 rounded-xl bg-white/5 border-white/10"
+src/components/PackagesTab.tsx:101:                  <label className="text-[10px] font-black uppercase tracking-widest text-white/50 px-1">Quantidade de Tokens</label>
+src/components/PackagesTab.tsx:103:                    <Coins className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/20 group-focus-within:text-primary transition-colors" />
+src/components/PackagesTab.tsx:104:                    <Input type="number" value={newCredits} onChange={(e) => setNewCredits(parseInt(e.target.value) || 0)} className="h-12 pl-12 rounded-xl bg-white/5 border-white/10" />
+src/components/PackagesTab.tsx:108:                  <label className="text-[10px] font-black uppercase tracking-widest text-white/50 px-1">Valor (R$)</label>
+src/components/PackagesTab.tsx:110:                    <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/20 group-focus-within:text-primary transition-colors" />
+src/components/PackagesTab.tsx:111:                    <Input type="number" step="0.01" value={newAmount} onChange={(e) => setNewAmount(parseFloat(e.target.value) || 0)} className="h-12 pl-12 rounded-xl bg-white/5 border-white/10" />
+src/components/PackagesTab.tsx:117:                <label className="text-[10px] font-black uppercase tracking-widest text-white/50 px-1">Tipo de Token</label>
+src/components/PackagesTab.tsx:119:                  <SelectTrigger className="h-12 rounded-xl bg-white/5 border-white/10">
+src/components/PackagesTab.tsx:122:                  <SelectContent className="bg-black border-white/10">
+src/components/PackagesTab.tsx:142:          <div className="text-center py-12 text-white/20 font-black uppercase tracking-widest text-xs">Nenhum pacote encontrado</div>
+src/components/PackagesTab.tsx:147:                <tr className="border-b border-white/5 text-left">
+src/components/PackagesTab.tsx:148:                  <th className="pb-4 font-black uppercase tracking-widest text-[10px] text-white/30 px-4">Nome</th>
+src/components/PackagesTab.tsx:149:                  <th className="pb-4 font-black uppercase tracking-widest text-[10px] text-white/30 px-4">Tokens / Tipo</th>
+src/components/PackagesTab.tsx:150:                  <th className="pb-4 font-black uppercase tracking-widest text-[10px] text-white/30 px-4">Valor</th>
+src/components/PackagesTab.tsx:151:                  <th className="pb-4 font-black uppercase tracking-widest text-[10px] text-white/30 px-4">Status</th>
+src/components/PackagesTab.tsx:152:                  <th className="pb-4 font-black uppercase tracking-widest text-[10px] text-white/30 px-4 text-right">Ações</th>
+src/components/PackagesTab.tsx:157:                  <tr key={pkg.id} className="group hover:bg-white/[0.02] transition-colors">
+src/components/PackagesTab.tsx:160:                        <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 group-hover:text-primary transition-colors">
+src/components/PackagesTab.tsx:163:                        <p className="text-sm font-bold text-white">{pkg.name}</p>
+src/components/PackagesTab.tsx:168:                        <span className="text-sm font-bold text-white">{pkg.credits}</span>
+src/components/PackagesTab.tsx:169:                        <Badge variant="outline" className="text-[9px] font-black uppercase tracking-tighter h-5 px-1.5 border-white/10 text-white/40">
+src/components/PackagesTab.tsx:179:                        <Badge className={`${pkg.is_active ? 'bg-emerald-500/20 text-emerald-400' : 'bg-red-500/20 text-red-400'} text-[9px] font-black uppercase border-transparent`}>
+src/components/PackagesTab.tsx:189:                        className="h-9 w-9 rounded-xl bg-red-500/10 text-red-400 hover:bg-red-500/20 border border-red-500/10"
+src/components/MonitoringTab.tsx:103:    <Card className={cn("glass-card border-white/10 overflow-hidden relative", accent, pulse && "animate-pulse")}>
+src/components/MonitoringTab.tsx:105:        <div className="p-3 rounded-2xl bg-white/10 border border-white/10">{icon}</div>
+src/components/MonitoringTab.tsx:107:          <div className="text-[10px] font-black uppercase tracking-widest text-white/60">{label}</div>
+src/components/MonitoringTab.tsx:109:          {hint && <div className="text-[10px] text-white/40 mt-1 truncate">{hint}</div>}
+src/components/MonitoringTab.tsx:341:        <div className="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg p-1">
+src/components/MonitoringTab.tsx:345:                periodH === h ? "bg-primary text-primary-foreground" : "text-white/60 hover:text-white")}>
+src/components/MonitoringTab.tsx:384:        <Card className="glass-card border-white/10">
+src/components/MonitoringTab.tsx:386:            <CardTitle className="text-xs font-black uppercase tracking-widest text-white/70">Erros · 7 dias</CardTitle>
+src/components/MonitoringTab.tsx:406:        <Card className="glass-card border-white/10">
+src/components/MonitoringTab.tsx:408:            <CardTitle className="text-xs font-black uppercase tracking-widest text-white/70">Erros · 24h</CardTitle>
+src/components/MonitoringTab.tsx:435:      <Card className="glass-card border-white/10">
+src/components/MonitoringTab.tsx:449:            <TabsList className="bg-white/5 border border-white/10 flex-wrap h-auto">
+src/components/MonitoringTab.tsx:492:                  <div className="rounded-xl border border-white/10 overflow-hidden">
+src/components/MonitoringTab.tsx:495:                        <TableRow className="hover:bg-transparent border-white/10">
+src/components/MonitoringTab.tsx:506:                          <TableRow key={e.id} className={cn("border-white/10 hover:bg-white/5", e.resolved && "opacity-50")}>
+src/components/MonitoringTab.tsx:578:                <div className="rounded-xl border border-white/10 overflow-hidden">
+src/components/MonitoringTab.tsx:581:                      <TableRow className="hover:bg-transparent border-white/10">
+src/components/MonitoringTab.tsx:592:                        <TableRow key={h.device_id} className="border-white/10 hover:bg-white/5">
+src/components/MonitoringTab.tsx:651:                <div className="rounded-xl border border-white/10 overflow-hidden">
+src/components/MonitoringTab.tsx:654:                      <TableRow className="hover:bg-transparent border-white/10">
+src/components/MonitoringTab.tsx:665:                        <TableRow key={v.id} className="border-white/10 hover:bg-white/5">
+src/components/MonitoringTab.tsx:701:        <DialogContent className="max-w-2xl glass-card border-white/10">
+src/components/MonitoringTab.tsx:723:              <div className="font-mono text-sm bg-background/40 p-3 rounded-lg border border-white/10 break-words">
+src/components/MonitoringTab.tsx:741:                  <pre className="text-[10px] text-muted-foreground bg-background/60 p-3 rounded-lg border border-white/10 overflow-x-auto max-h-[280px]">
+src/components/MonitoringTab.tsx:747:                <pre className="text-[10px] text-muted-foreground bg-background/60 p-3 rounded-lg border border-white/10 overflow-x-auto max-h-[200px]">
+src/components/MonitoringTab.tsx:773:    <Card className="glass-card border-white/10">
+src/components/MonitoringTab.tsx:775:        <CardTitle className="text-xs font-black uppercase tracking-widest text-white/70">{title}</CardTitle>

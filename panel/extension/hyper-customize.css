@@ -1,0 +1,671 @@
+/* ============================================
+   HyperBuild – Visual Customization CSS
+   v1.0 | Compatível com sidepanel.css
+   ============================================ */
+
+/* ──────────────────────────────────────────
+   USER CARD – suporte a imagem de fundo
+   O overflow:hidden é habilitado apenas quando
+   há imagem, para não quebrar o rgb-border
+────────────────────────────────────────── */
+#sp-user-card[data-has-bg] {
+  /* isolate + contain garante que a imagem não vaze */
+  isolation: isolate;
+}
+
+/* Overlay interno quando há bg image – garante legibilidade */
+#sp-user-card .hb-bg-overlay,
+#sp-user-card .hb-card-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--hb-card-image-overlay);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Garantir que todos os filhos diretos fiquem acima do overlay */
+#sp-user-card[data-has-bg] > *:not(.rgb-border):not(.hb-bg-overlay):not(.hb-card-overlay) {
+  position: relative;
+  z-index: 2;
+}
+
+/* ──────────────────────────────────────────
+   AVATAR – imagem sem distorção
+────────────────────────────────────────── */
+#sp-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  display: block;
+  image-rendering: auto;
+  /* Suavização em todos os navegadores */
+  -webkit-image-rendering: auto;
+}
+
+/* Mantém o glow animado do avatar mesmo com imagem */
+[data-theme="dark"] #sp-avatar:has(img) {
+  animation: avatarPulse 3s ease-in-out infinite;
+}
+
+/* ──────────────────────────────────────────
+   BOTÃO DE PERSONALIZAÇÃO
+────────────────────────────────────────── */
+#hb-open-customize {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid rgba(191, 0, 255, 0.25);
+  background: rgba(191, 0, 255, 0.12);
+  color: var(--neon-purple);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  z-index: 10;
+}
+
+#hb-open-customize:hover {
+  background: rgba(191, 0, 255, 0.25);
+  box-shadow: 0 0 10px rgba(191, 0, 255, 0.4);
+  opacity: 1 !important;
+}
+
+#sp-user-card:hover #hb-open-customize {
+  opacity: 1;
+}
+
+/* ──────────────────────────────────────────
+   PAINEL DE PERSONALIZAÇÃO
+────────────────────────────────────────── */
+#hb-customize-panel {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#hb-customize-panel::-webkit-scrollbar {
+  width: 3px;
+}
+#hb-customize-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+#hb-customize-panel::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #bf00ff, #ff0099);
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(191, 0, 255, 0.8);
+}
+
+/* Input range estilo premium */
+#hb-customize-panel input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(191, 0, 255, 0.2);
+  outline: none;
+  cursor: pointer;
+}
+
+#hb-customize-panel input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #bf00ff, #7c00e0);
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(191, 0, 255, 0.7);
+  transition: box-shadow 0.2s;
+}
+
+#hb-customize-panel input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 14px rgba(191, 0, 255, 1);
+}
+
+#hb-customize-panel input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #bf00ff, #7c00e0);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 8px rgba(191, 0, 255, 0.7);
+}
+
+/* Input color premium */
+#hb-customize-panel input[type="color"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 2px solid rgba(191, 0, 255, 0.3);
+  background: transparent;
+  cursor: pointer;
+  padding: 1px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#hb-customize-panel input[type="color"]:hover {
+  border-color: rgba(191, 0, 255, 0.7);
+  box-shadow: 0 0 10px rgba(191, 0, 255, 0.35);
+}
+
+#hb-customize-panel input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 6px;
+}
+
+#hb-customize-panel input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 5px;
+}
+
+/* Select estilo premium */
+#hb-customize-panel select {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23bf00ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#hb-customize-panel select:focus {
+  border-color: rgba(191, 0, 255, 0.5) !important;
+  box-shadow: 0 0 0 2px rgba(191, 0, 255, 0.15);
+}
+
+/* Label de upload com hover */
+#hb-card-img-label:hover,
+#hb-avatar-label:hover {
+  border-color: rgba(191, 0, 255, 0.6) !important;
+  background: rgba(191, 0, 255, 0.12) !important;
+  box-shadow: 0 0 12px rgba(191, 0, 255, 0.2);
+}
+
+/* Botões de Presets com Hover */
+.hb-preset-btn {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+
+.hb-preset-btn:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--neon-purple) !important;
+  transform: translateX(4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Botões do painel com hover */
+#hb-apply-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(191, 0, 255, 0.4);
+}
+
+#hb-apply-btn:active {
+  transform: translateY(0);
+}
+
+#hb-reset-btn:hover {
+  background: rgba(255, 50, 50, 0.12) !important;
+  border-color: rgba(255, 80, 80, 0.4) !important;
+}
+
+#hb-panel-close:hover {
+  background: rgba(191, 0, 255, 0.2) !important;
+  box-shadow: 0 0 10px rgba(191, 0, 255, 0.3);
+}
+
+#hb-card-img-clear:hover,
+#hb-avatar-clear:hover {
+  background: rgba(255, 50, 50, 0.18) !important;
+}
+
+/* ──────────────────────────────────────────
+   TRANSIÇÃO SUAVE ao aplicar CSS vars
+────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  transition:
+    --accent 0.4s,
+    --neon-purple 0.4s,
+    --cyan 0.4s,
+    --pink 0.4s,
+    --accent-glow 0.4s,
+    --accent-border 0.4s;
+}
+
+/* ──────────────────────────────────────────
+   PREVIEW CARD no painel
+────────────────────────────────────────── */
+#hb-preview-card {
+  image-rendering: high-quality;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+#hb-preview-rgb {
+  border-radius: calc(1.1rem + 2px);
+  animation: hbRgbPreview 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes hbRgbPreview {
+  0%   { background-position: 0% center; }
+  100% { background-position: 300% center; }
+}
+
+/* ──────────────────────────────────────────
+   COMPATIBILIDADE – RGB off preserva outros
+   efeitos sem afectar o customize system
+────────────────────────────────────────── */
+html.rgb-off #hb-preview-rgb {
+  opacity: 0 !important;
+}
+
+html.rgb-off [data-theme="dark"] #sp-user-card .rgb-border {
+  opacity: 0 !important;
+}
+
+/* ──────────────────────────────────────────
+   ANIMAÇÃO DE FADE para abertura do painel
+────────────────────────────────────────── */
+@keyframes hbPanelSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Central dynamic theme layer */
+:root {
+  --hb-accent: var(--accent, #bf00ff);
+  --hb-secondary: var(--cyan, #00fff7);
+  --hb-tertiary: var(--pink, #ff0099);
+  --hb-accent-rgb: 191, 0, 255;
+  --hb-secondary-rgb: 0, 255, 247;
+  --hb-tertiary-rgb: 255, 0, 153;
+  --hb-surface-rgb: 15, 0, 40;
+  --hb-dark-rgb: 2, 0, 9;
+  --hb-card-alpha: .86;
+  --hb-card-bg: rgba(var(--hb-surface-rgb), var(--hb-card-alpha));
+  --hb-card-bg-soft: rgba(var(--hb-surface-rgb), .64);
+  --hb-glow: var(--accent-glow);
+  --hb-glow-strong: rgba(var(--hb-accent-rgb), .5);
+  --hb-border: var(--accent-border);
+  --hb-border-soft: rgba(var(--hb-accent-rgb), .18);
+  --hb-rgb-gradient: linear-gradient(110deg, #fff 0%, var(--accent) 28%, var(--pink) 54%, var(--cyan) 78%, var(--accent) 100%);
+  --hb-rgb-conic: conic-gradient(from var(--border-angle), var(--accent) 0%, var(--pink) 22%, var(--cyan) 44%, var(--purple) 66%, var(--pink) 88%, var(--accent) 100%);
+  --hb-gradient: linear-gradient(145deg, var(--hb-gradient-start, #0f0028), var(--hb-gradient-end, #020009));
+}
+
+body,
+.glass-card,
+.user-card,
+.btn-send,
+.btn-action-icon,
+.tab-btn,
+.msg-textarea,
+.sp-quick-btn,
+.sp-plan-card,
+.sp-notif-panel,
+.sp-alert,
+#hb-customize-panel {
+  transition:
+    background .25s ease,
+    background-color .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease,
+    color .2s ease,
+    filter .25s ease,
+    transform .2s ease;
+}
+
+body {
+  background: var(--hb-gradient) !important;
+}
+
+[data-theme="dark"] .hyper-bg {
+  background: var(--hb-gradient) !important;
+}
+
+[data-theme="dark"] .hyper-bg::before {
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 15%, rgba(var(--hb-accent-rgb), .26) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 5%, rgba(var(--hb-secondary-rgb), .14) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 60% at 50% 100%, rgba(var(--hb-tertiary-rgb), .18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 70% at 5% 60%, rgba(var(--hb-accent-rgb), .16) 0%, transparent 55%) !important;
+}
+
+[data-theme="dark"] .hyper-bg::after {
+  background-image:
+    linear-gradient(rgba(var(--hb-accent-rgb), .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--hb-accent-rgb), .045) 1px, transparent 1px) !important;
+}
+
+[data-theme="dark"] .glass-card {
+  background: rgba(var(--hb-dark-rgb), .72) !important;
+  border-right: 1px solid var(--hb-border-soft) !important;
+  backdrop-filter: blur(var(--blur-amount, 28px)) saturate(168%) !important;
+  -webkit-backdrop-filter: blur(var(--blur-amount, 28px)) saturate(168%) !important;
+}
+
+.glass-card::-webkit-scrollbar-thumb,
+[data-theme="dark"] .glass-card::-webkit-scrollbar-thumb,
+#hb-customize-panel::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent), var(--pink)) !important;
+  box-shadow: 0 0 8px var(--accent-glow) !important;
+}
+
+.logo-icon,
+[data-theme="dark"] .logo-icon,
+#sp-rgb-toggle {
+  color: var(--accent) !important;
+  filter: drop-shadow(0 0 8px var(--accent)) drop-shadow(0 0 20px var(--accent-glow)) !important;
+}
+
+.logo-text,
+[data-theme="dark"] .logo-text,
+.user-name-rgb,
+#hb-customize-panel .hb-preview-name {
+  background: var(--hb-rgb-gradient) !important;
+  background-size: 300% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+.theme-toggle,
+[data-theme="dark"] .theme-toggle {
+  background: linear-gradient(90deg, rgba(var(--hb-dark-rgb), .92), rgba(var(--hb-accent-rgb), .32)) !important;
+  border-color: var(--hb-border) !important;
+  box-shadow: 0 0 16px var(--accent-glow), inset 0 0 12px rgba(var(--hb-accent-rgb), .08) !important;
+}
+
+[data-theme="dark"] .theme-toggle-knob {
+  background: var(--accent) !important;
+  box-shadow: 0 0 14px var(--accent), 0 0 28px var(--accent-glow) !important;
+}
+
+[data-theme="dark"] .hdr-icon {
+  color: rgba(var(--hb-accent-rgb), .68) !important;
+}
+
+[data-theme="dark"] .hdr-icon:hover {
+  color: var(--accent) !important;
+  filter: drop-shadow(0 0 8px var(--accent-glow)) !important;
+}
+
+.user-card,
+[data-theme="dark"] .user-card {
+  border-radius: var(--card-radius, 1.1rem) !important;
+  background: var(--hb-card-bg) !important;
+  border-color: transparent !important;
+  overflow: visible !important;
+  box-shadow: none !important;
+}
+
+#sp-user-card:not([data-has-bg]) {
+  overflow: visible !important;
+}
+
+#sp-user-card[data-has-bg] {
+  overflow: hidden !important;
+}
+
+#sp-user-card[data-has-bg] {
+  background-color: var(--hb-card-bg) !important;
+  background-blend-mode: normal !important;
+  box-shadow: 0 12px var(--shadow-blur, 20px) rgba(0,0,0,.18), 0 0 var(--shadow-blur, 20px) var(--accent-glow) !important;
+}
+
+.rgb-border,
+[data-theme="dark"] .user-card .rgb-border {
+  border-radius: calc(var(--card-radius, 1.1rem) + 2px) !important;
+  background: var(--hb-rgb-conic) !important;
+  animation-duration: var(--hb-rgb-dur, 4s) !important;
+}
+
+.rgb-border::after {
+  background: var(--hb-card-bg) !important;
+  border-radius: calc(var(--card-radius, 1.1rem) + .5px) !important;
+}
+
+#sp-user-card[data-has-bg] .rgb-border::after {
+  background: transparent !important;
+}
+
+.avatar,
+[data-theme="dark"] .avatar {
+  background: linear-gradient(135deg, var(--purple), var(--accent), var(--cyan)) !important;
+  box-shadow: 0 0 22px var(--hb-glow-strong), 0 0 42px var(--accent-glow) !important;
+}
+
+.user-expiry,
+[data-theme="dark"] .user-expiry {
+  color: var(--cyan) !important;
+  text-shadow: 0 0 10px rgba(var(--hb-secondary-rgb), .55) !important;
+}
+
+.sp-status-badge,
+[data-theme="dark"] .sp-status-badge {
+  background: rgba(var(--hb-accent-rgb), .12) !important;
+  border-color: var(--hb-border) !important;
+  color: var(--accent) !important;
+  box-shadow: 0 0 12px var(--accent-glow) !important;
+}
+
+.sp-status-dot,
+.shield-dot,
+[data-theme="dark"] .btn-shield.sp-shield-active .shield-dot {
+  background: var(--accent) !important;
+  box-shadow: 0 0 12px var(--accent) !important;
+}
+
+.tabs,
+[data-theme="dark"] .tabs {
+  background: rgba(var(--hb-accent-rgb), .05) !important;
+  border-color: var(--hb-border-soft) !important;
+}
+
+.tab-btn.active,
+[data-theme="dark"] .tab-btn.active,
+.btn-send,
+[data-theme="dark"] .btn-send,
+.sp-plan-send-btn,
+.sp-plan-step-num {
+  background: linear-gradient(110deg, var(--purple), var(--accent), var(--pink)) !important;
+  border-color: var(--hb-border) !important;
+  box-shadow: 0 0 22px var(--accent-glow), 0 6px 18px rgba(0,0,0,.24) !important;
+}
+
+.tab-btn:hover:not(.active),
+[data-theme="dark"] .tab-btn:hover:not(.active),
+.btn-action-icon:hover,
+[data-theme="dark"] .btn-action-icon:hover,
+.btn-watermark:hover,
+.btn-shield:hover,
+#sp-native-chat-btn:hover,
+.sp-plan-copy-btn:hover {
+  background: rgba(var(--hb-accent-rgb), .16) !important;
+  border-color: var(--hb-border) !important;
+  color: var(--accent) !important;
+  box-shadow: 0 0 18px var(--accent-glow) !important;
+}
+
+.msg-textarea,
+[data-theme="dark"] .msg-textarea,
+.sp-notif-panel,
+[data-theme="dark"] .sp-notif-panel,
+.sp-alert,
+[data-theme="dark"] .sp-alert,
+.response-area.visible,
+[data-theme="dark"] .response-area.visible,
+.sp-attach-preview-container,
+[data-theme="dark"] .sp-attach-preview-container,
+.sp-plan-card,
+.sp-plan-copy-btn {
+  background: rgba(var(--hb-surface-rgb), .5) !important;
+  border-color: var(--hb-border-soft) !important;
+}
+
+.msg-textarea:focus,
+[data-theme="dark"] .msg-textarea:focus {
+  border-color: var(--accent) !important;
+  caret-color: var(--accent) !important;
+  box-shadow: 0 0 0 1px var(--hb-border), 0 0 24px var(--accent-glow), inset 0 0 18px rgba(var(--hb-accent-rgb), .05) !important;
+}
+
+.section-title,
+[data-theme="dark"] .section-title,
+.sp-alert-title,
+.sp-plan-card:hover .sp-plan-copy-btn,
+#sp-native-chat-btn,
+[data-theme="dark"] #sp-native-chat-btn {
+  color: var(--accent) !important;
+  text-shadow: 0 0 12px var(--accent-glow) !important;
+}
+
+.divider,
+[data-theme="dark"] .divider,
+.ql-divider {
+  background: linear-gradient(90deg, transparent, var(--accent), var(--cyan), var(--pink), transparent) !important;
+  opacity: .72;
+}
+
+.sp-quick-btn,
+[data-theme="dark"] .sp-quick-btn,
+.btn-watermark,
+.btn-shield,
+[data-theme="dark"] .btn-watermark,
+[data-theme="dark"] .btn-shield,
+#sp-native-chat-btn {
+  background: rgba(var(--hb-accent-rgb), .075) !important;
+  border-color: var(--hb-border-soft) !important;
+}
+
+.sp-quick-btn::before {
+  background: linear-gradient(135deg, transparent 58%, rgba(var(--hb-accent-rgb), .16)) !important;
+}
+
+.sp-quick-btn:hover,
+[data-theme="dark"] .sp-quick-btn:hover,
+.sp-quick-btn.sp-quick-active {
+  background: rgba(var(--hb-accent-rgb), .2) !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 6px 20px var(--accent-glow), 0 0 0 1px var(--hb-border) !important;
+}
+
+.sp-plan-card::before {
+  background: linear-gradient(90deg, var(--accent), var(--pink), var(--cyan)) !important;
+}
+
+#hb-customize-panel {
+  background: rgba(var(--hb-dark-rgb), .96) !important;
+  color: var(--text-main) !important;
+}
+
+#hb-customize-panel > div:first-child {
+  border-bottom-color: var(--hb-border-soft) !important;
+}
+
+#hb-customize-panel > div:first-child > div > div:first-child,
+#hb-apply {
+  background: linear-gradient(135deg, var(--accent), var(--purple)) !important;
+  box-shadow: 0 4px 16px var(--accent-glow) !important;
+}
+
+#hb-close {
+  border-color: var(--hb-border-soft) !important;
+  background: rgba(var(--hb-accent-rgb), .08) !important;
+  color: var(--accent) !important;
+}
+
+#hb-prev-rgb {
+  background: linear-gradient(90deg, var(--accent), var(--cyan), var(--pink), var(--accent)) !important;
+}
+
+#hb-prev-card {
+  background: var(--hb-card-bg) !important;
+}
+
+#hb-prev-av {
+  background: linear-gradient(135deg, rgba(var(--hb-accent-rgb), .28), rgba(var(--hb-secondary-rgb), .14)) !important;
+  border-color: var(--hb-border) !important;
+}
+
+#hb-prev-av svg {
+  stroke: var(--accent) !important;
+}
+
+#hb-customize-panel [style*="color:#bf00ff"],
+#hb-customize-panel [style*="color: #bf00ff"],
+#hb-customize-panel [style*="rgba(191,0,255"],
+#hb-customize-panel [style*="rgba(191, 0, 255"] {
+  color: var(--accent) !important;
+}
+
+#hb-customize-panel [style*="border:1px solid rgba(191,0,255"],
+#hb-customize-panel [style*="border:1.5px solid rgba(191,0,255"],
+#hb-customize-panel [style*="border:2px solid rgba(191,0,255"] {
+  border-color: var(--hb-border-soft) !important;
+}
+
+#hb-bg-thumb,
+#hb-av-thumb {
+  border-color: var(--hb-border) !important;
+}
+
+#hb-customize-panel input[type="range"] {
+  background: rgba(var(--hb-accent-rgb), .2) !important;
+}
+
+#hb-customize-panel input[type="range"]::-webkit-slider-thumb,
+#hb-customize-panel input[type="range"]::-moz-range-thumb {
+  background: linear-gradient(135deg, var(--accent), var(--purple)) !important;
+  box-shadow: 0 0 10px var(--hb-glow-strong) !important;
+}
+
+#hb-customize-panel input[type="color"],
+#hb-customize-panel select,
+#hb-card-img-label,
+#hb-avatar-label,
+#hb-bg-lbl,
+#hb-av-lbl {
+  border-color: var(--hb-border-soft) !important;
+}
+
+#hb-customize-panel input[type="color"]:hover,
+#hb-customize-panel select:focus,
+#hb-bg-lbl:hover,
+#hb-av-lbl:hover {
+  border-color: var(--hb-border) !important;
+  box-shadow: 0 0 14px var(--accent-glow) !important;
+}
+
+html.rgb-off [data-theme="dark"] .user-card .rgb-border {
+  background: rgba(var(--hb-accent-rgb), .34) !important;
+}
+
+html.rgb-off [data-theme="dark"] .logo-text,
+html.rgb-off .user-name-rgb {
+  background: linear-gradient(110deg, #fff 0%, var(--accent) 100%) !important;
+  background-size: 100% auto !important;
+}

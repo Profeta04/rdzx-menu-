@@ -1,0 +1,7 @@
+# HyperBuild
+
+> Ecossistema de gerenciamento de licenças de alta performance, com segurança máxima, validação server-side e escalabilidade ilimitada.
+
+## Pages
+
+- [Home](/): Visão geral do HyperBuild e recursos principais.

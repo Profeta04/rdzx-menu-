@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Burp Lovable",
+   "version": "2.6.1",
+  "description": "Interceptor de requests da Lovable em popup, com diagnósticos e captura em tempo real.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://lovable.dev/*",
+    "https://*.lovable.dev/*",
+    "https://api.lovable.dev/*",
+    "https://cvbgrjauqjawrsyknhyj.supabase.co/*"
+  ],
+  "background": {
+    "service_worker": "burp_background.js"
+  },
+  "action": {
+    "default_title": "Burp Lovable",
+    "default_popup": "burp_sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://lovable.dev/*",
+        "https://*.lovable.dev/*"
+      ],
+      "js": ["burp_content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["burp_pageHook.js"],
+      "matches": [
+        "https://lovable.dev/*",
+        "https://*.lovable.dev/*"
+      ]
+    }
+  ]
+}

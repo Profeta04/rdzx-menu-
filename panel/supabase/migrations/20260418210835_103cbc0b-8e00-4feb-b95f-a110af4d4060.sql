@@ -1,0 +1,1 @@
+ALTER TABLE public.reseller_credit_packages RENAME COLUMN price TO amount;

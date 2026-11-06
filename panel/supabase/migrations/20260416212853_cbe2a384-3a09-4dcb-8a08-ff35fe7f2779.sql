@@ -1,0 +1,1 @@
+DELETE FROM public.security_logs WHERE user_id = '04759950-0a93-4c55-84f3-1ec0fef8ec92' AND event_type = 'admin_key_verification' AND status = 'failure';

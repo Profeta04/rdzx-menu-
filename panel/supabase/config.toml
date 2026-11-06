@@ -1,0 +1,19 @@
+project_id = "cvbgrjauqjawrsyknhyj"
+
+[functions.burp]
+verify_jwt = false
+
+[functions.reseller-login]
+verify_jwt = false
+
+[functions.download-project-zip]
+verify_jwt = false
+
+[functions.fraud-alerts]
+verify_jwt = false
+
+[functions.bulk-license-ops]
+verify_jwt = true
+
+[functions.dev-proxy-test]
+verify_jwt = false

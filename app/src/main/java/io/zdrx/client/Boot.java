@@ -31,11 +31,24 @@ public class Boot extends Activity {
     private static final int REQ_VPN  = 1002;
 
     private TextView out;
+    private TextView licStatus;
+    private Button startBtn;
 
     @Override protected void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(ui());
         ask();
+
+        Lic.fetchLatestNotificationAsync(this, (id, title, msg, ca) -> {
+            if (id != null && !id.isEmpty() && !id.equals(Prefs.getLastNotifId())) {
+                Prefs.putLastNotifId(id);
+                new android.app.AlertDialog.Builder(Boot.this)
+                        .setTitle("📢 " + title)
+                        .setMessage(msg)
+                        .setPositiveButton("OK", null)
+                        .show();
+            }
+        });
     }
 
     private View ui() {
@@ -53,30 +66,38 @@ public class Boot extends Activity {
         r.addView(t);
 
         TextView hw = new TextView(this);
-        hw.setText("HWID  " + Lic.hwid(this).substring(0, 16));
+        hw.setText("HWID: " + Lic.hwid(this).substring(0, 16));
         hw.setTextColor(Color.parseColor("#8b9ab5"));
         hw.setTextSize(TypedValue.COMPLEX_UNIT_SP, 11);
         r.addView(hw);
 
-        final EditText key = new EditText(this);
-        key.setHint("chave  (ZDRX-TRIAL libera)");
-        key.setTextColor(Color.WHITE);
-        key.setHintTextColor(Color.parseColor("#5b6b86"));
-        key.setInputType(InputType.TYPE_CLASS_TEXT);
-        r.addView(key);
+        licStatus = new TextView(this);
+        licStatus.setPadding(0, dp(8), 0, dp(4));
+        licStatus.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+        if (Prefs.isLicenseActive()) {
+            licStatus.setText("Licença ativa: " + Lic.formatRemaining(Prefs.getExpiry()));
+            licStatus.setTextColor(Color.parseColor("#4ade80"));
+        } else {
+            licStatus.setText("Nenhuma licença ativa. Insira sua chave.");
+            licStatus.setTextColor(Color.parseColor("#fbbf24"));
+        }
+        r.addView(licStatus);
 
-        Button gen = new Button(this);
-        gen.setText("GERAR MINHA CHAVE");
-        gen.setOnClickListener(v -> {
-            key.setText(Lic.keyFor(Boot.this));
-            say("chave: " + Lic.keyFor(Boot.this));
-        });
-        r.addView(gen);
+        final EditText keyInput = new EditText(this);
+        keyInput.setHint("Cole sua key (ex: ZDRX-D-...)");
+        keyInput.setTextColor(Color.WHITE);
+        keyInput.setHintTextColor(Color.parseColor("#5b6b86"));
+        keyInput.setInputType(InputType.TYPE_CLASS_TEXT);
+        String savedKey = Prefs.getKey();
+        if (savedKey != null && !savedKey.isEmpty()) {
+            keyInput.setText(savedKey);
+        }
+        r.addView(keyInput);
 
-        Button start = new Button(this);
-        start.setText("ATIVAR E INICIAR");
-        start.setOnClickListener(v -> activate(key.getText().toString()));
-        r.addView(start);
+        startBtn = new Button(this);
+        startBtn.setText("ATIVAR E INICIAR");
+        startBtn.setOnClickListener(v -> activate(keyInput.getText().toString()));
+        r.addView(startBtn);
 
         Button stop = new Button(this);
         stop.setText("PARAR");
@@ -84,7 +105,7 @@ public class Boot extends Activity {
             Zdrx.boot(false);
             stopService(new Intent(this, ZdrxVpn.class));
             stopService(new Intent(this, ZdrxOverlay.class));
-            say("parado");
+            say("serviços parados");
         });
         r.addView(stop);
 
@@ -105,6 +126,11 @@ public class Boot extends Activity {
                     Zdrx.tick();
                     String tr = Zdrx.traceDrain();
                     if (tr != null && !tr.trim().isEmpty()) say(tr.trim());
+
+                    if (Prefs.isLicenseActive()) {
+                        licStatus.setText("Licença ativa: " + Lic.formatRemaining(Prefs.getExpiry()));
+                        licStatus.setTextColor(Color.parseColor("#4ade80"));
+                    }
                 } catch (Throwable ignored) {}
                 out.postDelayed(this, 1500);
             }
@@ -128,14 +154,38 @@ public class Boot extends Activity {
         }
     }
 
-    private void activate(String key) {
-        if (Lic.check(this, key) != Lic.OK) {
-            Toast.makeText(this, "chave invalida", Toast.LENGTH_SHORT).show();
-            say("licenca: INVALIDA");
+    private void activate(String keyStr) {
+        final String clean = keyStr != null ? keyStr.trim().toUpperCase() : "";
+        if (clean.isEmpty()) {
+            Toast.makeText(this, "Informe a chave de licença", Toast.LENGTH_SHORT).show();
+            say("erro: chave em branco");
             return;
         }
-        say("licenca: OK");
 
+        startBtn.setEnabled(false);
+        startBtn.setText("VALIDANDO NO SUPABASE...");
+        say("validando chave com servidor...");
+
+        Lic.checkAsync(this, clean, (status, msg, expiresAtMs) -> {
+            startBtn.setEnabled(true);
+            startBtn.setText("ATIVAR E INICIAR");
+
+            if (status == Lic.OK) {
+                say("licenca OK: " + Lic.formatRemaining(expiresAtMs));
+                licStatus.setText("Licença ativa: " + Lic.formatRemaining(expiresAtMs));
+                licStatus.setTextColor(Color.parseColor("#4ade80"));
+                Toast.makeText(Boot.this, "Licença válida!", Toast.LENGTH_SHORT).show();
+                proceedToStart();
+            } else {
+                say("licenca RECUSADA: " + msg);
+                licStatus.setText(msg);
+                licStatus.setTextColor(Color.parseColor("#f87171"));
+                Toast.makeText(Boot.this, msg, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void proceedToStart() {
         if (!Settings.canDrawOverlays(this)) {
             startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION));
             return;
@@ -147,6 +197,11 @@ public class Boot extends Activity {
     }
 
     private void launch() {
+        if (!Prefs.isLicenseActive()) {
+            say("erro: sem licença válida para iniciar");
+            Toast.makeText(this, "Licença expirada ou inválida", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Zdrx.boot(true);
         Prefs.loadCfg();
         startService(new Intent(this, ZdrxVpn.class));
@@ -158,7 +213,7 @@ public class Boot extends Activity {
         super.onActivityResult(req, res, d);
         if (req == REQ_VPN) {
             if (res == RESULT_OK) launch();
-            else say("VPN recusada");
+            else say("VPN recusada pelo usuário");
         }
     }
 

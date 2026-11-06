@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HyperBuild - Painel Lateral</title>
+  <link rel="stylesheet" href="sidepanel.css">
+  <link rel="stylesheet" href="hyper-customize.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script defer src="/__l5e/events.js" data-artifact-kind="static_preview" data-artifact-id="c418d56026251313f00a8976750c9d6b6d5f3d69" data-commit-sha="c418d56026251313f00a8976750c9d6b6d5f3d69" data-context-token="v1.eyJwcm9qZWN0X2lkIjoiOTcxZGZmYjUtZjFhZi00YjMwLWI1MGQtYTNkYTcxNzBhNWNlIiwiYXJ0aWZhY3Rfa2luZCI6InN0YXRpY19wcmV2aWV3IiwiYXJ0aWZhY3RfaWQiOiJjNDE4ZDU2MDI2MjUxMzEzZjAwYTg5NzY3NTBjOWQ2YjZkNWYzZDY5IiwiY29tbWl0X3NoYSI6ImM0MThkNTYwMjYyNTEzMTNmMDBhODk3Njc1MGM5ZDZiNmQ1ZjNkNjkiLCJleHAiOjE3ODA3NjYwMzd9.VLXlsIC8QqIzqXXbJq8VKCvjGloPuPvX14JEoLnncoE" data-track-url="/__l5e/trackevents?__lovable_sha=c418d56026251313f00a8976750c9d6b6d5f3d69"></script><meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e64abd4d-cdd6-4eb4-b27f-477e69d41077/id-preview-a984f996--971dffb5-f1af-4b30-b50d-a3da7170a5ce.lovable.app-1776071595032.png"><meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e64abd4d-cdd6-4eb4-b27f-477e69d41077/id-preview-a984f996--971dffb5-f1af-4b30-b50d-a3da7170a5ce.lovable.app-1776071595032.png"></head>
+<body>
+  <!-- BACKGROUND LAYERS -->
+  <div class="hyper-bg"></div>
+  <div class="stars-layer"><canvas id="starsCanvas"></canvas></div>
+  <div class="orb orb-1"></div>
+  <div class="orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="glass-card">
+    <!-- HEADER -->
+    <div class="header">
+      <div class="logo">
+        <span class="logo-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </span>
+        <span class="logo-text">HyperBuild</span>
+      </div>
+      <div class="header-right">
+        <!-- METHOD SELECTOR (Fast / Nativo / Proxy) -->
+        <div class="hb-method-selector" style="position:relative; flex-shrink:0;">
+          <button type="button" id="sp-method-btn" title="Método de envio" style="display:inline-flex; align-items:center; gap:4px; padding:3px 8px; height:24px; border-radius:999px; border:1px solid var(--accent-border); background:rgba(191,0,255,0.10); cursor:pointer; font-weight:800; font-size:9px; text-transform:uppercase; letter-spacing:.04em; color:var(--neon-purple); line-height:1;">
+            <span id="sp-method-icon" style="display:inline-flex; align-items:center; justify-content:center; width:12px; height:12px; color:var(--neon-purple);"></span>
+            <span id="sp-method-label">Fast</span>
+            <span style="font-size:8px;">▾</span>
+          </button>
+          <div id="sp-method-menu" style="display:none; position:fixed; min-width:200px; background:rgba(18,18,20,0.95); backdrop-filter:blur(24px); border:1px solid var(--accent-border); border-radius:12px; padding:6px; z-index:99999; box-shadow:0 8px 24px rgba(0,0,0,.5);"></div>
+        </div>
+        <!-- NOTIFICATIONS -->
+        <span class="hdr-icon sp-notif-btn" title="Notificações">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="sp-notif-badge" style="display:none">0</span>
+        </span>
+        <!-- BACK TO POPUP -->
+        <span class="hdr-icon" id="sp-back-to-popup" title="Voltar ao modo Popup">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/>
+            <line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>
+          </svg>
+        </span>
+        <!-- LOGOUT -->
+        <span class="hdr-icon sp-logout-btn" id="sp-logout-btn" title="Sair">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- MAIN BODY -->
+    <div id="sp-body">
+      <div style="padding:100px 0;text-align:center;color:var(--text-sub); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display:flex; flex-direction:column; align-items:center; gap:12px">
+        <div class="ql-loading-spinner" style="width:24px; height:24px; border:2px solid var(--accent-border); border-top-color:var(--neon-purple); border-radius:50%; animation:ql-spin 1s linear infinite"></div>
+        <span>Carregando...</span>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div style="display: flex; align-items: center; justify-content: center; padding-top: .75rem; border-top: 1px solid var(--accent-border); margin-top: 1rem;">
+      <span style="font-size: .64rem; font-weight: 800; background: linear-gradient(90deg, var(--neon-purple), var(--purple), var(--cyan)); -webkit-background-clip: text; color: transparent;">HyperBuild Official</span>
+    </div>
+  </div>
+
+  <div class="sp-notif-panel" id="sp-notif-panel" style="display:none">
+    <div class="sp-notif-header">
+      <span>Notificações</span>
+      <button class="sp-notif-close" id="sp-notif-close">✕</button>
+    </div>
+    <div class="sp-notif-list" id="sp-notif-list">
+      <p class="sp-notif-empty">Carregando...</p>
+    </div>
+  </div>
+
+  <script src="hwFingerprint.js"></script>
+  <script src="upload-manager.js"></script>
+  <script src="sidepanel-templates.js"></script>
+ <script src="services/plan-engine.js"></script>
+  <script src="sidepanel.js"></script>
+  <script src="sidepanel-effects.js"></script>
+  <script src="hyper-customize.js"></script>
+<script src="https://cdn.gpteng.co/lovable.js" type="module"></script></body>
+</html>

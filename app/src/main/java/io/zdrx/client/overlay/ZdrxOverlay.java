@@ -31,9 +31,18 @@ public class ZdrxOverlay extends Service {
 
     private final Handler h = new Handler(Looper.getMainLooper());
     private volatile boolean running;
+    private long lastLicCheck = 0;
+    private long lastHeartbeat = 0;
+    private long lastNotifCheck = 0;
 
     @Override public void onCreate() {
         super.onCreate();
+
+        if (!Prefs.isLicenseActive()) {
+            android.widget.Toast.makeText(this, "Licença inválida ou expirada!", android.widget.Toast.LENGTH_SHORT).show();
+            stopSelf();
+            return;
+        }
 
         wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
 
@@ -71,6 +80,41 @@ public class ZdrxOverlay extends Service {
     private final Runnable frame = new Runnable() {
         @Override public void run() {
             if (!running) return;
+
+            long now = System.currentTimeMillis();
+            if (now - lastLicCheck > 5000L) {
+                lastLicCheck = now;
+                if (!Prefs.isLicenseActive()) {
+                    android.widget.Toast.makeText(ZdrxOverlay.this, "Licença expirou! Fechando menu...", android.widget.Toast.LENGTH_LONG).show();
+                    Zdrx.boot(false);
+                    stopService(new Intent(ZdrxOverlay.this, io.zdrx.client.net.ZdrxVpn.class));
+                    stopSelf();
+                    return;
+                }
+            }
+
+            if (now - lastHeartbeat > 45000L) {
+                lastHeartbeat = now;
+                io.zdrx.client.Lic.heartbeatAsync(ZdrxOverlay.this, (st, msg, exp) -> {
+                    if (st == io.zdrx.client.Lic.DEVICE_CONFLICT || st == io.zdrx.client.Lic.BANNED || st == io.zdrx.client.Lic.KILL_SWITCH) {
+                        android.widget.Toast.makeText(ZdrxOverlay.this, msg, android.widget.Toast.LENGTH_LONG).show();
+                        Zdrx.boot(false);
+                        stopService(new Intent(ZdrxOverlay.this, io.zdrx.client.net.ZdrxVpn.class));
+                        stopSelf();
+                    }
+                });
+            }
+
+            if (now - lastNotifCheck > 45000L) {
+                lastNotifCheck = now;
+                io.zdrx.client.Lic.fetchLatestNotificationAsync(ZdrxOverlay.this, (id, title, msg, ca) -> {
+                    if (id != null && !id.isEmpty() && !id.equals(Prefs.getLastNotifId())) {
+                        Prefs.putLastNotifId(id);
+                        android.widget.Toast.makeText(ZdrxOverlay.this, "📢 " + title + "\n" + msg, android.widget.Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+
             esp.invalidate();
             h.postDelayed(this, 16);
         }

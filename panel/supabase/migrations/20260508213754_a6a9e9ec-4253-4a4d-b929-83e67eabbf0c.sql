@@ -1,0 +1,2 @@
+-- This is a documentation-only migration for the Edge Function logic change
+-- No database changes required for this refactor.

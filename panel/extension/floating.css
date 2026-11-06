@@ -1,0 +1,1647 @@
+/* Attachment loading spinner */
+.ql-attach-spinner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  backdrop-filter: blur(2px);
+}
+
+.ql-attach-spin {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: var(--ql-primary);
+  border-radius: 50%;
+  animation: ql-spin 0.8s linear infinite;
+}
+
+:root {
+  --ql-primary: #bf00ff;
+  --ql-primary-glow: rgba(191, 0, 255, 0.12);
+  --ql-primary-border: rgba(191, 0, 255, 0.2);
+  --ql-text-sub: #a890cc;
+}
+
+#ql-floating {
+  position: fixed;
+  width: 385px;
+  max-width: 95vw;
+  z-index: 999999999;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: rgba(28, 28, 30, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--ql-primary-border);
+  border-radius: 1.6rem;
+  overflow: hidden;
+  color: #f0e8ff;
+  box-shadow: 0 32px 72px rgba(0,0,0,0.85);
+  transition: 
+    background .4s, 
+    border-color .4s, 
+    height .4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+    transform .4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity .3s ease;
+  will-change: transform, opacity, height;
+  /* Sem scroll no flutuante – conteúdo se adapta ao tamanho fixo */
+  display: flex;
+  flex-direction: column;
+}
+
+/* O body interno também não rola */
+#ql-floating #ql-body {
+  overflow: hidden !important;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Apenas a área de tabs/chat pode rolar internamente se necessário */
+#ql-floating .ql-tab-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(191,0,255,0.3) transparent;
+  flex: 1;
+  min-height: 0;
+}
+#ql-floating .ql-tab-content::-webkit-scrollbar { width: 3px; }
+#ql-floating .ql-tab-content::-webkit-scrollbar-track { background: transparent; }
+#ql-floating .ql-tab-content::-webkit-scrollbar-thumb {
+  background: rgba(191,0,255,0.4);
+  border-radius: 3px;
+}
+
+/* Premium Animations */
+@keyframes ql-premium-open {
+  0%   { opacity: 0; transform: scale(0.95) translateY(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes ql-premium-close {
+  0%   { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(0.9) translateY(10px); }
+}
+
+.ql-animate-open  { animation: ql-premium-open  0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.ql-animate-close { animation: ql-premium-close 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+
+#ql-floating.ql-minimized {
+  height: 64px !important;
+  transform: scale(0.98);
+}
+
+#ql-floating.ql-minimized #ql-header {
+  justify-content: space-between;
+  padding: 0 1.3rem;
+  height: 64px;
+}
+
+#ql-floating.ql-minimized .ql-header-right,
+#ql-floating.ql-minimized #ql-header > div:last-child {
+  position: absolute !important;
+  right: 1.3rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+#ql-floating.ql-minimized #ql-body {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* ══ DARK NEON THEME ══ */
+.ql-dark {
+  --ql-primary: var(--hb-accent, #bf00ff);
+  --ql-primary-glow: rgba(var(--hb-accent-rgb, 191, 0, 255), 0.2);
+  --ql-primary-border: rgba(var(--hb-accent-rgb, 191, 0, 255), 0.35);
+  --ql-text-sub: #8b7ab8;
+}
+
+#ql-floating.ql-dark {
+  background: rgba(5, 0, 20, 0.95) !important;
+  color: #f0e8ff !important;
+  border-color: rgba(191,0,255,0.4) !important;
+  box-shadow:
+    0 0 0 1px rgba(191,0,255,0.15),
+    0 0 40px rgba(191,0,255,0.15),
+    0 32px 72px rgba(0,0,0,0.9) !important;
+}
+
+#ql-native-header.ql-dark {
+  background: rgba(5, 0, 20, 0.95) !important;
+  color: #f0e8ff !important;
+  border-color: rgba(191,0,255,0.35) !important;
+}
+
+#ql-shield-overlay.ql-dark {
+  background: rgba(5, 0, 20, 0.98) !important;
+  border-color: rgba(191,0,255,0.4) !important;
+}
+
+/* Light Theme */
+.ql-light {
+  --ql-primary: #bf00ff;
+  --ql-primary-glow: rgba(191, 0, 255, 0.12);
+  --ql-primary-border: rgba(191, 0, 255, 0.2);
+  --ql-text-sub: #a890cc;
+}
+
+#ql-floating.ql-light {
+  background: rgba(28, 28, 30, 0.75) !important;
+  color: #f0e8ff !important;
+  border-color: var(--ql-primary-border) !important;
+}
+
+/* ── Logo Text ── */
+.ql-logo-text {
+  font-size: 1.15rem; font-weight: 900; letter-spacing: 1.5px;
+  background: linear-gradient(110deg, #fff 5%, var(--ql-primary) 35%, #9333ea 60%, #06d6f5 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: textFlow 5s linear infinite;
+}
+
+.ql-dark .ql-logo-text {
+  background: linear-gradient(110deg, #fff 0%, #bf00ff 25%, #ff0099 50%, #00fff7 75%, #bf00ff 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: neonTextFlow 4s linear infinite;
+}
+
+@keyframes neonTextFlow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 300% center; }
+}
+
+@keyframes textFlow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 220% center; }
+}
+
+/* ── Textarea ── */
+.ql-dark .ql-msg-textarea {
+  background: rgba(8, 0, 25, 0.9);
+  border-color: rgba(191,0,255,0.25);
+  color: #f0e8ff;
+  caret-color: #bf00ff;
+}
+
+.ql-dark .ql-msg-textarea:focus {
+  border-color: #bf00ff;
+  box-shadow:
+    0 0 0 1px rgba(191,0,255,0.25),
+    0 0 20px rgba(191,0,255,0.2),
+    inset 0 0 20px rgba(191,0,255,0.04);
+}
+
+/* ── Send Button ── */
+.ql-dark .ql-btn-send {
+  background: linear-gradient(110deg, #4a0090, #bf00ff, #9900cc);
+  background-size: 200% auto;
+  border: 1px solid rgba(191,0,255,0.5);
+  box-shadow: 0 0 20px rgba(191,0,255,0.4), 0 0 40px rgba(191,0,255,0.15), 0 4px 15px rgba(0,0,0,0.4);
+  animation: sendBtnFlow 4s linear infinite;
+  font-weight: 900;
+  text-shadow: 0 0 12px rgba(255,255,255,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes sendBtnFlow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.ql-dark .ql-btn-send::before {
+  content: '';
+  position: absolute; top: 0; left: -80%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  animation: btnShimmer 3s ease-in-out infinite;
+  border-radius: inherit;
+}
+
+@keyframes btnShimmer {
+  0%   { left: -80%; }
+  100% { left: 200%; }
+}
+
+.ql-dark .ql-btn-send:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 30px rgba(191,0,255,0.7), 0 0 60px rgba(191,0,255,0.35), 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* ── Icon Buttons ── */
+.ql-dark .ql-icon-btn {
+  background: rgba(191,0,255,0.06);
+  border-color: rgba(191,0,255,0.18);
+  color: #9060c0;
+}
+
+.ql-dark .ql-icon-btn:hover {
+  border-color: #bf00ff;
+  color: #bf00ff;
+  background: rgba(191,0,255,0.18);
+  box-shadow: 0 0 15px rgba(191,0,255,0.45), 0 0 30px rgba(191,0,255,0.2);
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* ── User Card ── */
+.ql-dark .ql-user-card {
+  background: rgba(15, 0, 40, 0.7);
+  border-color: rgba(191,0,255,0.35);
+  box-shadow: 0 0 20px rgba(191,0,255,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.ql-dark .ql-user-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, #bf00ff, #00fff7, #ff0099, transparent);
+  background-size: 200% auto;
+  animation: borderFlow 3s linear infinite;
+}
+
+@keyframes borderFlow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.ql-dark .ql-user-card::after {
+  background: linear-gradient(180deg, var(--ql-primary), var(--hb-tertiary, #ff0099), var(--hb-secondary, #00fff7));
+  box-shadow: -4px 0 20px rgba(var(--hb-accent-rgb, 191, 0, 255), 0.7);
+  animation: sideBarGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes sideBarGlow {
+  0%   { box-shadow: -4px 0 20px rgba(191,0,255,0.7); }
+  50%  { box-shadow: -4px 0 25px rgba(255,0,153,0.7); }
+  100% { box-shadow: -4px 0 25px rgba(0,255,247,0.6); }
+}
+
+/* ── Tabs ── */
+.ql-dark .ql-tab-active {
+  background: linear-gradient(135deg, #3a0070, #bf00ff) !important;
+  box-shadow: 0 0 20px rgba(191,0,255,0.5), 0 0 40px rgba(191,0,255,0.2) !important;
+  text-shadow: 0 0 8px rgba(255,255,255,0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.ql-dark .ql-tab-active::after {
+  content: '';
+  position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  animation: tabShimmer 3s ease-in-out infinite;
+}
+
+@keyframes tabShimmer {
+  0%   { left: -100%; }
+  50%, 100% { left: 200%; }
+}
+
+.ql-dark .ql-tab {
+  color: var(--ql-text-sub);
+}
+
+/* ── Shield Button ── */
+.ql-dark .ql-shield-btn.ql-shield-active {
+  background: rgba(191,0,255,0.18) !important;
+  border-color: #bf00ff !important;
+  box-shadow: 0 0 25px rgba(191,0,255,0.4), inset 0 0 20px rgba(191,0,255,0.1) !important;
+}
+
+.ql-dark .ql-shield-btn.ql-shield-active .shield-dot {
+  background: #bf00ff !important;
+  box-shadow: 0 0 15px rgba(191,0,255,1), 0 0 30px rgba(191,0,255,0.6) !important;
+}
+
+/* ── Native Chat Btn ── */
+.ql-dark .ql-native-chat-btn {
+  color: #bf00ff;
+  border-color: rgba(191,0,255,0.22);
+  background: rgba(191,0,255,0.06);
+}
+
+.ql-dark .ql-native-chat-btn:hover {
+  background: rgba(191,0,255,0.15) !important;
+  border-color: #bf00ff !important;
+  box-shadow: 0 0 25px rgba(191,0,255,0.4), 0 0 50px rgba(191,0,255,0.15) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+/* ── Action Buttons (watermark/shield row) ── */
+.ql-dark #ql-remove-watermark,
+.ql-dark #ql-shield-btn {
+  background: rgba(191,0,255,0.06) !important;
+  border-color: rgba(191,0,255,0.22) !important;
+  color: #c090e0 !important;
+  transition: all .2s;
+}
+
+.ql-dark #ql-remove-watermark:hover,
+.ql-dark #ql-shield-btn:hover {
+  background: rgba(191,0,255,0.14) !important;
+  border-color: rgba(191,0,255,0.55) !important;
+  box-shadow: 0 0 20px rgba(191,0,255,0.3) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+/* ══ HEADER ══ */
+#ql-header {
+  padding: 1.4rem 1.3rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: move;
+}
+
+.ql-icon-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #f0e8ff;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 12px;
+}
+.ql-icon-btn:hover {
+  background: var(--ql-primary-glow);
+  border-color: var(--ql-primary);
+  color: var(--ql-primary);
+  transform: translateY(-2px) scale(1.1);
+}
+.ql-icon-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+.ql-icon-btn svg { width: 13px; height: 13px; }
+
+.ql-user-card {
+  background: rgba(10, 3, 24, 0.4);
+  border: 1px solid var(--ql-primary-border);
+  border-radius: 1.1rem;
+  padding: .8rem 1rem;
+  display: flex; align-items: center; gap: 11px;
+  margin: 0 0 1.15rem;
+  position: relative; overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.ql-user-card:hover { transform: translateY(-2px); }
+
+.ql-user-card::after {
+  content: '';
+  position: absolute; right: 0; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(180deg, var(--ql-primary), #6600cc);
+  border-radius: 0 1.1rem 1.1rem 0;
+}
+
+.ql-msg-textarea {
+  width: 100%;
+  background: rgba(4, 1, 14, 0.85);
+  border: 1px solid var(--ql-primary-border);
+  border-radius: 1rem;
+  padding: .85rem 1rem;
+  font-size: .83rem; color: #f0e8ff;
+  resize: vertical; font-family: inherit; line-height: 1.55;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 95px;
+  outline: none;
+}
+.ql-msg-textarea:focus {
+  border-color: rgba(191,0,255,0.55);
+  box-shadow: 0 0 0 2px var(--ql-primary-glow);
+}
+
+.ql-btn-send {
+  flex: 1;
+  height: 38px;
+  background: linear-gradient(110deg, #7b00cc, var(--ql-primary));
+  border: none; border-radius: 19px;
+  color: #fff; font-weight: 800; font-size: .85rem;
+  cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px var(--ql-primary-glow);
+  position: relative; overflow: hidden;
+}
+.ql-btn-send:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 6px 20px rgba(191,0,255,0.4); }
+.ql-btn-send:active { transform: translateY(0) scale(0.98); }
+.ql-btn-send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.ql-shield-btn.ql-shield-active {
+  background: var(--ql-primary-border) !important;
+  border-color: var(--ql-primary) !important;
+  color: #fff !important;
+}
+
+.ql-shield-btn.ql-shield-active .shield-dot {
+  background: var(--ql-primary) !important;
+  box-shadow: 0 0 10px var(--ql-primary);
+}
+
+.ql-native-chat-btn:hover {
+  background: var(--ql-primary-border) !important;
+  border-color: var(--ql-primary) !important;
+  transform: translateY(-2px);
+}
+
+.tabs {
+  display: flex; background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 4px; gap: 4px; margin-bottom: 1.15rem; border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.ql-tab {
+  flex: 1; border: none; background: transparent; color: var(--ql-text-sub); padding: 6px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.ql-tab-active {
+  background: var(--ql-primary-border) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px var(--ql-primary-glow);
+  transform: scale(1.02);
+}
+
+.ql-drop-zone-active {
+  animation: ql-glow-pulse 1.5s infinite;
+}
+
+.ql-dark .ql-drop-zone-active {
+  animation: qlNeonDropPulse 1.5s infinite;
+}
+
+@keyframes ql-glow-pulse {
+  0%   { box-shadow: 0 0 5px var(--ql-primary-border); border-color: var(--ql-primary-border); }
+  50%  { box-shadow: 0 0 20px rgba(191,0,255,0.5); border-color: rgba(191,0,255,0.6); }
+  100% { box-shadow: 0 0 5px var(--ql-primary-border); border-color: var(--ql-primary-border); }
+}
+
+@keyframes qlNeonDropPulse {
+  0%   { box-shadow: 0 0 5px rgba(191,0,255,0.3); border-color: rgba(191,0,255,0.3); }
+  50%  { box-shadow: 0 0 30px rgba(191,0,255,0.8), 0 0 60px rgba(191,0,255,0.3); border-color: rgba(191,0,255,0.9); }
+  100% { box-shadow: 0 0 5px rgba(191,0,255,0.3); border-color: rgba(191,0,255,0.3); }
+}
+
+/* ══ NEON SCANLINES (floating dark) ══ */
+.ql-dark::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(191, 0, 255, 0.01) 2px,
+    rgba(191, 0, 255, 0.01) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+/* Efeito de pulsação durante a gravação */
+.ql-recording {
+  background: rgba(255, 50, 80, 0.2) !important;
+  border-color: #ff3366 !important;
+  color: #ff3366 !important;
+  animation: ql-pulse 1.5s infinite;
+}
+
+@keyframes ql-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 51, 102, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 51, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 51, 102, 0); }
+}
+
+/* ══════════════════════════════════════════════════════════
+   IMMERSIVE OVERLAY — full-screen native chat mode
+   ══════════════════════════════════════════════════════════ */
+#ql-immersive-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999990;
+  pointer-events: none;
+  font-family: 'Inter', system-ui, sans-serif;
+  animation: ql-imm-fade-in 0.4s ease forwards;
+}
+
+@keyframes ql-imm-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.ql-imm-rect {
+  position: fixed;
+  background: rgba(10, 10, 15, 0.98) !important;
+  backdrop-filter: blur(32px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(180%) !important;
+  pointer-events: auto;
+  border: 1px solid rgba(191, 0, 255, 0.3) !important;
+  box-shadow: inset 0 0 100px rgba(191, 0, 255, 0.15), 0 0 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+.ql-imm-top {
+  border-bottom: 1px solid rgba(191, 0, 255, 0.35);
+  box-shadow: 0 4px 30px rgba(191, 0, 255, 0.15);
+}
+
+.ql-imm-left {
+  border-right: 1px solid rgba(191, 0, 255, 0.35);
+  box-shadow: 4px 0 30px rgba(191, 0, 255, 0.1);
+}
+
+.ql-imm-right {
+  border-left: 1px solid rgba(191, 0, 255, 0.35);
+  box-shadow: -4px 0 30px rgba(191, 0, 255, 0.1);
+}
+
+.ql-imm-bottom {
+  border-top: 1px solid rgba(191, 0, 255, 0.35);
+}
+
+/* Header bar over the top strip */
+.ql-imm-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 999999992;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  pointer-events: auto;
+  background: linear-gradient(180deg, rgba(10, 0, 25, 0.99), rgba(20, 0, 45, 0.95)) !important;
+  border-bottom: 1px solid rgba(191, 0, 255, 0.6) !important;
+  box-shadow: 0 10px 40px rgba(191, 0, 255, 0.3), 0 0 100px rgba(0, 0, 0, 0.5) !important;
+  height: 80px !important;
+}
+
+.ql-imm-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ql-imm-logo {
+  font-size: 24px;
+  filter: drop-shadow(0 0 8px rgba(191, 0, 255, 0.8));
+  animation: ql-imm-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ql-imm-pulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(191, 0, 255, 0.8)); }
+  50%      { transform: scale(1.1); filter: drop-shadow(0 0 16px rgba(191, 0, 255, 1)); }
+}
+
+.ql-imm-brand-text { line-height: 1.1; }
+
+.ql-imm-title {
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  background: linear-gradient(110deg, #fff 0%, #bf00ff 40%, #ff0099 70%, #00fff7 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: ql-imm-text-flow 4s linear infinite;
+}
+
+@keyframes ql-imm-text-flow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.ql-imm-subtitle {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(191, 0, 255, 0.85);
+  margin-top: 2px;
+}
+
+.ql-imm-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ql-imm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(191, 0, 255, 0.08);
+  border: 1px solid rgba(191, 0, 255, 0.25);
+  color: #c090e0;
+  transition: all 0.3s ease;
+}
+
+.ql-imm-badge .ql-imm-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #555;
+}
+
+.ql-imm-badge-license {
+  color: #00ff9f;
+  border-color: rgba(0, 255, 159, 0.4);
+  background: rgba(0, 255, 159, 0.08);
+}
+.ql-imm-badge-license .ql-imm-dot {
+  background: #00ff9f;
+  box-shadow: 0 0 8px rgba(0, 255, 159, 0.8);
+}
+
+.ql-imm-badge-shield.ql-imm-badge-active {
+  color: #fff;
+  border-color: #bf00ff;
+  background: rgba(191, 0, 255, 0.2);
+  box-shadow: 0 0 15px rgba(191, 0, 255, 0.4);
+}
+.ql-imm-badge-shield.ql-imm-badge-active .ql-imm-dot {
+  background: #bf00ff;
+  box-shadow: 0 0 8px rgba(191, 0, 255, 1);
+}
+
+.ql-imm-exit {
+  height: 36px;
+  padding: 0 18px;
+  background: linear-gradient(110deg, #4a0090, #bf00ff);
+  border: 1px solid rgba(191, 0, 255, 0.6);
+  border-radius: 18px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(191, 0, 255, 0.4);
+}
+.ql-imm-exit:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 25px rgba(191, 0, 255, 0.7);
+}
+
+/* Side branding content (in left strip) */
+.ql-imm-side-content {
+  position: fixed;
+  pointer-events: none;
+  z-index: 999999991;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.ql-imm-watermark {
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 900;
+  letter-spacing: clamp(4px, 1vw, 10px);
+  background: linear-gradient(135deg, rgba(191, 0, 255, 0.4), rgba(0, 255, 247, 0.3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0.5;
+  text-shadow: 0 0 40px rgba(191, 0, 255, 0.3);
+  user-select: none;
+}
+
+.ql-imm-tagline {
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: rgba(192, 144, 224, 0.6);
+  text-transform: uppercase;
+}
+
+/* Elevate native chat above overlay */
+.ql-imm-elevated {
+  position: relative !important;
+  z-index: 999999995 !important;
+}
+.ql-imm-elevated-parent {
+  z-index: 999999994 !important;
+}
+
+/* ══════════════════════════════════════════
+   HyperBuild v6.1 – POPUP ENHANCED STYLES
+   ══════════════════════════════════════════ */
+
+/* ── HEADER IMPROVEMENTS ── */
+#ql-floating #ql-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.2rem 0.75rem;
+  border-bottom: 1px solid rgba(191,0,255,0.12);
+  background: transparent;
+  position: relative;
+}
+
+.ql-dark #ql-header {
+  border-bottom-color: rgba(191,0,255,0.2);
+}
+
+/* ── USER CARD WRAP ── */
+.ql-user-card-wrap {
+  position: relative;
+  isolation: isolate;
+  border-radius: 14px;
+  margin-bottom: 0.9rem;
+  margin-top: 0.75rem;
+}
+
+.ql-rgb-border {
+  position: absolute;
+  inset: -1.5px;
+  border-radius: calc(var(--card-radius, 1.1rem) + 2px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.95;
+  filter: none;
+}
+
+.ql-rgb-border::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  border-radius: calc(var(--card-radius, 1.1rem) + 0.5px);
+  background: var(--hb-card-bg, rgba(15, 0, 40, 0.92));
+  display: block;
+}
+
+.ql-user-card-wrap:has(#ql-user-card-inner[data-has-bg]) .ql-rgb-border::after {
+  background: transparent !important;
+}
+
+#ql-user-card-inner {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+@property --border-angle-ql {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes rgb-spin-ql {
+  to { --border-angle-ql: 360deg; }
+}
+
+.ql-dark .ql-rgb-border {
+  background: var(--hb-rgb-conic-ql, conic-gradient(
+    from var(--border-angle-ql),
+    var(--ql-primary) 0%, var(--ql-tertiary) 22%, var(--ql-secondary) 44%, var(--purple, var(--ql-primary)) 66%, var(--ql-tertiary) 88%, var(--ql-primary) 100%
+  ));
+  --border-angle-ql: 0deg;
+  animation: rgb-spin-ql var(--hb-rgb-dur, 4s) linear infinite;
+  filter: none;
+}
+
+.ql-dark .ql-user-card {
+  background: rgba(15, 0, 40, 0.85) !important;
+  border: none !important;
+  border-radius: 13px !important;
+  padding: 10px 12px !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  transition: transform 0.12s ease-out !important;
+  will-change: transform;
+  isolation: isolate;
+}
+
+/* ── AVATAR ── */
+.ql-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6a00c0, #bf00ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 16px rgba(191,0,255,0.6);
+  transition: box-shadow 0.2s ease;
+}
+
+.ql-dark .ql-avatar {
+  box-shadow: 0 0 18px rgba(191,0,255,0.8), 0 0 35px rgba(191,0,255,0.3);
+  animation: avatarPulse 3s ease-in-out infinite;
+}
+
+.ql-avatar:hover { box-shadow: 0 0 25px rgba(191,0,255,1) !important; }
+
+.ql-avatar::after {
+  content: '📷';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.ql-avatar:hover::after { opacity: 1; }
+
+/* ── USERNAME RGB TEXT ── */
+.ql-user-name-text {
+  background: linear-gradient(110deg, #fff 0%, #bf00ff 30%, #ff0099 55%, #00fff7 80%, #bf00ff 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: neonTextFlow 5s linear infinite;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+/* ── STATUS BADGE ── */
+.ql-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: rgba(191,0,255,0.1);
+  color: #bf00ff;
+  border: 1px solid rgba(191,0,255,0.3);
+  padding: 4px 9px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  margin-left: auto;
+  flex-shrink: 0;
+  align-self: center;
+  height: 22px;
+  line-height: 1;
+}
+
+.ql-status-dot {
+  width: 5px;
+  height: 5px;
+  background: #bf00ff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #bf00ff;
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px #bf00ff; }
+  50% { opacity: 0.5; box-shadow: 0 0 12px #bf00ff; }
+}
+
+/* ── QUICK ACTIONS IN POPUP ── */
+.ql-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin: 12px 0 0;
+}
+
+.ql-quick-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 2px;
+  border-radius: 10px;
+  border: 1px solid rgba(191,0,255,0.2);
+  background: rgba(191,0,255,0.06);
+  color: #c090e0;
+  font-size: 9px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 52px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ql-quick-btn:hover {
+  border-color: rgba(191,0,255,0.7);
+  background: rgba(191,0,255,0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(191,0,255,0.35);
+  color: #fff;
+}
+
+.ql-quick-btn:active { transform: scale(0.96); }
+
+.ql-quick-btn-icon { font-size: 15px; line-height: 1; }
+
+/* ── ICON BUTTON ── */
+.ql-dark .ql-icon-btn {
+  background: rgba(191,0,255,0.07);
+  border: 1px solid rgba(191,0,255,0.18);
+  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #a878d8;
+  transition: all 0.2s ease;
+}
+
+.ql-dark .ql-icon-btn:hover {
+  background: rgba(191,0,255,0.18);
+  border-color: #bf00ff;
+  color: #bf00ff;
+  box-shadow: 0 0 14px rgba(191,0,255,0.4);
+  transform: scale(1.1);
+}
+
+/* ── TABS IMPROVEMENT ── */
+.ql-dark .ql-tab {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.ql-dark .ql-tab:not(.ql-tab-active) {
+  color: rgba(168,120,216,0.6);
+}
+
+.ql-dark .ql-tab:hover:not(.ql-tab-active) {
+  background: rgba(191,0,255,0.08) !important;
+  color: rgba(191,0,255,0.9);
+}
+
+.ql-dark .ql-tab.ql-tab-active {
+  background: linear-gradient(135deg, #3a0070, #bf00ff) !important;
+  color: #fff !important;
+  box-shadow: 0 0 16px rgba(191,0,255,0.45), inset 0 0 12px rgba(191,0,255,0.1) !important;
+}
+
+/* ── DIVIDER ── */
+.ql-divider {
+  height: 1px;
+  margin: 12px 0;
+  background: linear-gradient(90deg, transparent, rgba(191,0,255,0.4), rgba(0,255,247,0.2), rgba(191,0,255,0.4), transparent);
+}
+
+/* ── SECTION TITLE ── */
+.ql-section-title {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #bf00ff;
+  text-shadow: 0 0 10px rgba(191,0,255,0.8);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ql-section-title svg {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  display: block;
+}
+
+
+/* ══════════════════════════════════════════════════════
+   LICENSE GATE – Dark mode obrigatório + Logo RGB girando
+   ══════════════════════════════════════════════════════ */
+
+/* Garante dark mode no gate independente do estado global */
+#ql-floating.ql-license-gate-active,
+#ql-floating:has(#ql-license-input) {
+  background: rgba(3, 0, 15, 0.97) !important;
+  border-color: rgba(191,0,255,0.45) !important;
+  box-shadow:
+    0 0 0 1px rgba(191,0,255,0.2),
+    0 0 40px rgba(191,0,255,0.2),
+    0 32px 72px rgba(0,0,0,0.95) !important;
+}
+
+/* Logo icon RGB spinning para o license gate */
+@property --ql-logo-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes ql-logo-rgb-spin {
+  to { --ql-logo-angle: 360deg; }
+}
+
+@keyframes ql-logo-pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 8px #bf00ff) drop-shadow(0 0 20px rgba(191,0,255,0.7)); }
+  33%       { filter: drop-shadow(0 0 12px #ff0099) drop-shadow(0 0 28px rgba(255,0,153,0.7)); }
+  66%       { filter: drop-shadow(0 0 12px #00fff7) drop-shadow(0 0 28px rgba(0,255,247,0.6)); }
+}
+
+.ql-gate-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  padding: 0 4px;
+}
+
+.ql-gate-logo-icon {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+/* Anel RGB externo girando ao redor do ícone */
+.ql-gate-logo-icon::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 12px;
+  background: conic-gradient(
+    from var(--ql-logo-angle),
+    #bf00ff 0%,
+    #ff0099 25%,
+    #00fff7 50%,
+    #7700ff 75%,
+    #bf00ff 100%
+  );
+  --ql-logo-angle: 0deg;
+  animation: ql-logo-rgb-spin 3s linear infinite;
+  z-index: 0;
+}
+
+/* Fundo interno para isolar o anel */
+.ql-gate-logo-icon::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 9px;
+  background: rgba(3, 0, 15, 0.97);
+  z-index: 1;
+}
+
+.ql-gate-logo-svg {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #bf00ff;
+  animation: ql-logo-pulse-glow 4s ease-in-out infinite;
+}
+
+.ql-gate-logo-text {
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  background: linear-gradient(110deg, #fff 0%, #bf00ff 25%, #ff0099 50%, #00fff7 75%, #bf00ff 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: ql-gate-text-flow 4s linear infinite;
+}
+
+@keyframes ql-gate-text-flow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 300% center; }
+}
+
+/* Gate body */
+.ql-gate-body {
+  padding: 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ql-gate-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.ql-gate-subtitle {
+  color: rgba(168,144,204,0.85);
+  font-size: 12px;
+  margin-bottom: 22px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Input da key mais bonito no dark */
+.ql-gate-input {
+  width: 100%;
+  background: rgba(8, 0, 25, 0.9);
+  border: 1px solid rgba(191,0,255,0.25);
+  border-radius: 1rem;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: #f0e8ff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  outline: none;
+  caret-color: #bf00ff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-bottom: 14px;
+}
+
+.ql-gate-input::placeholder {
+  color: rgba(191,0,255,0.35);
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.ql-gate-input:focus {
+  border-color: rgba(191,0,255,0.7);
+  box-shadow:
+    0 0 0 2px rgba(191,0,255,0.15),
+    0 0 20px rgba(191,0,255,0.2),
+    inset 0 0 20px rgba(191,0,255,0.04);
+}
+
+/* Botão ativar no gate */
+.ql-gate-btn {
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(110deg, #4a0090, #bf00ff, #9900cc);
+  background-size: 200% auto;
+  border: 1px solid rgba(191,0,255,0.5);
+  border-radius: 1rem;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(191,0,255,0.4), 0 4px 15px rgba(0,0,0,0.4);
+  animation: ql-gate-btn-flow 4s linear infinite;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+@keyframes ql-gate-btn-flow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.ql-gate-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -80%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  animation: ql-gate-btn-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes ql-gate-btn-shimmer {
+  0%   { left: -80%; }
+  100% { left: 200%; }
+}
+
+.ql-gate-btn:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 0 30px rgba(191,0,255,0.6), 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.ql-gate-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Log de status */
+.ql-gate-log {
+  margin-top: 14px;
+  font-size: 12px;
+  min-height: 44px;
+  width: 100%;
+  text-align: center;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Logo ring RGB (elemento real, compatível com ofuscação) ── */
+@property --ql-ring-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes ql-ring-spin {
+  to { --ql-ring-angle: 360deg; }
+}
+
+.ql-gate-logo-ring {
+  --ql-ring-angle: 0deg;
+  background: conic-gradient(
+    from var(--ql-ring-angle),
+    #bf00ff  0%,
+    #ff0099 25%,
+    #00fff7 50%,
+    #7700ff 75%,
+    #bf00ff 100%
+  );
+  animation: ql-ring-spin 3s linear infinite;
+}
+
+/* Fallback para navegadores sem @property: rotação via transform */
+@supports not (background: conic-gradient(from 1turn, red, red)) {
+  .ql-gate-logo-ring {
+    background: linear-gradient(135deg, var(--ql-primary), var(--ql-tertiary), var(--ql-secondary), var(--purple, var(--ql-primary)));
+    animation: ql-ring-fallback 3s linear infinite;
+  }
+  @keyframes ql-ring-fallback {
+    to { transform: rotate(360deg); }
+  }
+}
+
+/* HyperBuild synchronized dynamic theme */
+:root {
+  --hb-accent: var(--accent, #bf00ff);
+  --hb-secondary: var(--cyan, #00fff7);
+  --hb-tertiary: var(--pink, #ff0099);
+  --hb-accent-rgb: 191, 0, 255;
+  --hb-secondary-rgb: 0, 255, 247;
+  --hb-tertiary-rgb: 255, 0, 153;
+  --hb-surface-rgb: 15, 0, 40;
+  --hb-dark-rgb: 2, 0, 9;
+  --hb-card-alpha: .86;
+  --hb-card-bg: rgba(var(--hb-surface-rgb), var(--hb-card-alpha));
+  --hb-card-bg-soft: rgba(var(--hb-surface-rgb), .64);
+  --hb-glow: var(--ql-primary-glow);
+  --hb-glow-strong: rgba(var(--hb-accent-rgb), .52);
+  --hb-border: var(--ql-primary-border);
+  --hb-border-soft: rgba(var(--hb-accent-rgb), .18);
+  --hb-rgb-gradient: linear-gradient(110deg, #fff 0%, var(--ql-primary) 28%, var(--hb-tertiary) 54%, var(--hb-secondary) 78%, var(--ql-primary) 100%);
+  --hb-rgb-conic-ql: conic-gradient(from var(--border-angle-ql), var(--ql-primary) 0%, var(--hb-tertiary) 22%, var(--hb-secondary) 44%, var(--purple, var(--ql-primary)) 66%, var(--hb-tertiary) 88%, var(--ql-primary) 100%);
+}
+
+.ql-dark,
+.ql-light,
+#ql-floating {
+  --ql-primary: var(--accent, #bf00ff);
+  --ql-primary-glow: var(--accent-glow, rgba(191, 0, 255, .18));
+  --ql-primary-border: var(--accent-border, rgba(191, 0, 255, .35));
+  --ql-secondary: var(--cyan, #00fff7);
+  --ql-tertiary: var(--pink, #ff0099);
+  --ql-text-sub: var(--text-sub, #a890cc);
+}
+
+#ql-floating {
+  width: min(390px, calc(100vw - 20px)) !important;
+  max-height: calc(100vh - 24px) !important;
+  background: rgba(var(--hb-dark-rgb), .82) !important;
+  border-color: var(--ql-primary-border) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    0 0 0 1px rgba(var(--hb-accent-rgb), .12),
+    0 0 var(--shadow-blur, 36px) var(--ql-primary-glow),
+    0 26px 68px rgba(0,0,0,.82) !important;
+  backdrop-filter: blur(var(--blur-amount, 28px)) saturate(168%) !important;
+  -webkit-backdrop-filter: blur(var(--blur-amount, 28px)) saturate(168%) !important;
+}
+
+#ql-floating.ql-dark,
+#ql-floating.ql-light,
+#ql-floating.ql-license-gate-active,
+#ql-floating:has(#ql-license-input) {
+  background: rgba(var(--hb-dark-rgb), .9) !important;
+  border-color: var(--ql-primary-border) !important;
+}
+
+#ql-floating:not(.ql-minimized) {
+  min-height: 460px;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#ql-floating #ql-header {
+  flex: 0 0 auto !important;
+  border-bottom-color: var(--hb-border-soft) !important;
+  padding: .9rem 1.05rem .72rem !important;
+}
+
+#ql-floating #ql-body {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 1rem 1rem !important;
+}
+
+#ql-floating #ql-tab-content,
+#ql-floating .ql-tab-content {
+  display: block !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 0 3px 2px 0 !important;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ql-primary-border) transparent;
+}
+
+#ql-floating #ql-tab-content::-webkit-scrollbar,
+#ql-floating .ql-tab-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+#ql-floating #ql-tab-content::-webkit-scrollbar-track,
+#ql-floating .ql-tab-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#ql-floating #ql-tab-content::-webkit-scrollbar-thumb,
+#ql-floating .ql-tab-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--ql-primary), var(--ql-tertiary));
+  border-radius: 6px;
+}
+
+.ql-logo-text,
+.ql-dark .ql-logo-text,
+.ql-user-name-text,
+.ql-gate-logo-text,
+.ql-imm-title {
+  background: var(--hb-rgb-gradient) !important;
+  background-size: 300% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+#ql-header span[style*="color:#bf00ff"],
+#ql-header span[style*="color: #bf00ff"],
+#ql-rgb-toggle,
+.ql-gate-logo-svg,
+.ql-section-title,
+.ql-imm-subtitle {
+  color: var(--ql-primary) !important;
+  filter: drop-shadow(0 0 8px var(--ql-primary-glow)) !important;
+}
+
+.ql-icon-btn,
+.ql-dark .ql-icon-btn,
+.ql-light .ql-icon-btn {
+  background: rgba(var(--hb-accent-rgb), .075) !important;
+  border-color: var(--hb-border-soft) !important;
+  color: rgba(var(--hb-accent-rgb), .72) !important;
+  border-radius: 10px !important;
+}
+
+.ql-icon-btn:hover,
+.ql-dark .ql-icon-btn:hover,
+.ql-light .ql-icon-btn:hover {
+  background: rgba(var(--hb-accent-rgb), .18) !important;
+  border-color: var(--ql-primary) !important;
+  color: var(--ql-primary) !important;
+  box-shadow: 0 0 16px var(--ql-primary-glow) !important;
+}
+
+.ql-user-card-wrap {
+  margin: 1.2rem 0 .9rem !important;
+  border-radius: var(--card-radius, 1.1rem) !important;
+}
+
+.ql-user-card,
+.ql-dark .ql-user-card,
+#ql-user-card-inner {
+  background: var(--hb-card-bg) !important;
+  border-color: transparent !important;
+  border-radius: calc(var(--card-radius, 1.1rem) - 2px) !important;
+  box-shadow: none !important;
+}
+
+.ql-user-card::before,
+.ql-user-card::after,
+.ql-dark .ql-user-card::before,
+.ql-dark .ql-user-card::after,
+#ql-user-card-inner::before,
+#ql-user-card-inner::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+.ql-rgb-border,
+.ql-dark .ql-rgb-border {
+  background: var(--hb-rgb-conic-ql) !important;
+  animation-duration: var(--hb-rgb-dur, 4s) !important;
+  border-radius: calc(var(--card-radius, 1.1rem) + 1px) !important;
+}
+
+.ql-avatar,
+.ql-dark .ql-avatar {
+  background: linear-gradient(135deg, var(--purple, var(--ql-primary)), var(--ql-primary), var(--ql-secondary)) !important;
+  box-shadow: 0 0 20px var(--hb-glow-strong), 0 0 36px var(--ql-primary-glow) !important;
+}
+
+.ql-status-badge {
+  background: rgba(var(--hb-accent-rgb), .12) !important;
+  border-color: var(--ql-primary-border) !important;
+  color: var(--ql-primary) !important;
+}
+
+.ql-status-dot,
+.ql-shield-btn.ql-shield-active .shield-dot,
+.ql-dark .ql-shield-btn.ql-shield-active .shield-dot,
+.ql-imm-badge-shield.ql-imm-badge-active .ql-imm-dot {
+  background: var(--ql-primary) !important;
+  box-shadow: 0 0 12px var(--ql-primary) !important;
+}
+
+#ql-floating .tabs,
+#ql-floating div[style*="background:rgba(191,0,255,0.05)"] {
+  background: rgba(var(--hb-accent-rgb), .055) !important;
+  border-color: var(--hb-border-soft) !important;
+}
+
+.ql-tab-active,
+.ql-dark .ql-tab.ql-tab-active,
+.ql-dark .ql-tab-active,
+.ql-btn-send,
+.ql-dark .ql-btn-send,
+.ql-gate-btn,
+.ql-imm-exit {
+  background: linear-gradient(110deg, var(--purple, var(--ql-primary)), var(--ql-primary), var(--ql-tertiary)) !important;
+  border-color: var(--ql-primary-border) !important;
+  box-shadow: 0 0 22px var(--ql-primary-glow), 0 6px 18px rgba(0,0,0,.25) !important;
+}
+
+.ql-tab:hover:not(.ql-tab-active),
+.ql-dark .ql-tab:hover:not(.ql-tab-active),
+#ql-new-project-btn:hover,
+#ql-remove-watermark:hover,
+#ql-shield-btn:hover,
+.ql-native-chat-btn:hover {
+  background: rgba(var(--hb-accent-rgb), .16) !important;
+  border-color: var(--ql-primary) !important;
+  color: var(--ql-primary) !important;
+  box-shadow: 0 0 16px var(--ql-primary-glow) !important;
+}
+
+.ql-msg-textarea,
+.ql-dark .ql-msg-textarea,
+.ql-gate-input {
+  background: rgba(var(--hb-surface-rgb), .54) !important;
+  border-color: var(--hb-border-soft) !important;
+  color: #f0e8ff !important;
+  caret-color: var(--ql-primary) !important;
+}
+
+.ql-msg-textarea:focus,
+.ql-dark .ql-msg-textarea:focus,
+.ql-gate-input:focus {
+  border-color: var(--ql-primary) !important;
+  box-shadow: 0 0 0 1px var(--ql-primary-border), 0 0 22px var(--ql-primary-glow), inset 0 0 18px rgba(var(--hb-accent-rgb), .05) !important;
+}
+
+#ql-new-project-btn,
+#ql-remove-watermark,
+#ql-shield-btn,
+.ql-native-chat-btn,
+.ql-dark #ql-remove-watermark,
+.ql-dark #ql-shield-btn,
+.ql-dark .ql-native-chat-btn {
+  background: rgba(var(--hb-accent-rgb), .075) !important;
+  border-color: var(--hb-border-soft) !important;
+}
+
+.ql-divider {
+  background: linear-gradient(90deg, transparent, var(--ql-primary), var(--ql-secondary), var(--ql-tertiary), transparent) !important;
+}
+
+.ql-quick-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 7px !important;
+  margin: 10px 0 4px !important;
+  padding-bottom: 2px !important;
+}
+
+.ql-quick-btn {
+  min-width: 0 !important;
+  min-height: 58px !important;
+  height: auto !important;
+  padding: 8px 4px !important;
+  border-color: var(--hb-border-soft) !important;
+  background: rgba(var(--hb-accent-rgb), .075) !important;
+  color: var(--ql-text-sub) !important;
+  white-space: normal !important;
+  line-height: 1.15 !important;
+  overflow: visible !important;
+  word-break: keep-all;
+}
+
+.ql-quick-btn:hover {
+  background: rgba(var(--hb-accent-rgb), .2) !important;
+  border-color: var(--ql-primary) !important;
+  box-shadow: 0 6px 20px var(--ql-primary-glow) !important;
+}
+
+.ql-quick-btn-icon {
+  flex-shrink: 0;
+  color: var(--ql-primary) !important;
+  filter: drop-shadow(0 0 8px var(--ql-primary-glow));
+}
+
+.ql-gate-logo-ring {
+  background: conic-gradient(from var(--ql-ring-angle), var(--ql-primary) 0%, var(--ql-tertiary) 25%, var(--ql-secondary) 50%, var(--purple, var(--ql-primary)) 75%, var(--ql-primary) 100%) !important;
+}
+
+#ql-native-header,
+#ql-native-header.ql-dark,
+.ql-imm-rect,
+.ql-imm-header,
+.ql-imm-top,
+.ql-imm-left,
+.ql-imm-right,
+.ql-imm-bottom {
+  border-color: var(--ql-primary-border) !important;
+  box-shadow: 0 0 32px var(--ql-primary-glow), 0 12px 42px rgba(0,0,0,.5) !important;
+}
+
+.ql-imm-header {
+  background: linear-gradient(180deg, rgba(var(--hb-dark-rgb), .98), rgba(var(--hb-surface-rgb), .92)) !important;
+}
+
+.ql-log-error,
+.ql-log-info,
+.ql-log-success,
+.ql-gate-log {
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 700;
+  min-height: 44px;
+}
+
+.ql-log-error {
+  color: #ff6b8a !important;
+  background: rgba(255, 50, 100, 0.1) !important;
+  border: 1px solid rgba(255, 80, 120, 0.25) !important;
+}
+
+.ql-log-info {
+  color: var(--ql-secondary, #00fff7) !important;
+  background: rgba(var(--hb-secondary-rgb, 0, 255, 247), 0.08) !important;
+  border: 1px solid var(--hb-border-soft) !important;
+}
+
+.ql-log-success {
+  color: #6dffb0 !important;
+  background: rgba(50, 255, 150, 0.08) !important;
+  border: 1px solid rgba(80, 255, 160, 0.25) !important;
+}

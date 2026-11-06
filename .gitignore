@@ -1,0 +1,13 @@
+# Android
+.gradle/
+build/
+app/build/
+*.iml
+.idea/
+local.properties
+
+# Node / Web Panel
+panel/node_modules/
+panel/dist/
+panel/.env
+*.log

@@ -1,0 +1,265 @@
+    .pb-safe {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    .bottom-safe {
+      bottom: env(safe-area-inset-bottom);
+    }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans Fallback";
+  font-display: swap;
+  src: local("Arial");
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Glassmorphism tokens — light-mode neutral values */
+    --glass-bg: 0 0% 100%;
+    --glass-bg-alpha: 0.55;
+    --glass-blur: 24px;
+    --glass-border: 0 0% 0%;
+    --glass-border-alpha: 0.12;
+    --neon: 286 100% 50%;
+    --neon-glow: 286 100% 65%;
+    --card-elevated: 0 0% 96%;
+    --card-elevated-hover: 0 0% 92%;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 260 20% 98%;
+
+    --card: 240 8% 10%;
+    --card-foreground: 260 20% 98%;
+
+    --popover: 240 8% 10%;
+    --popover-foreground: 260 20% 98%;
+
+    --primary: 286 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 286 100% 65%;
+
+    --secondary: 240 8% 14%;
+    --secondary-foreground: 260 20% 98%;
+
+    --muted: 240 8% 14%;
+    --muted-foreground: 260 20% 72%;
+
+    --accent: 240 8% 14%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 65% 55%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 60%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 240 8% 18%;
+    --input: 240 8% 18%;
+    --ring: 286 100% 50%;
+
+    --sidebar-background: 240 10% 6%;
+    --sidebar-foreground: 260 20% 90%;
+    --sidebar-primary: 286 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 8% 14%;
+    --sidebar-accent-foreground: 260 20% 98%;
+    --sidebar-border: 240 8% 18%;
+    --sidebar-ring: 286 100% 50%;
+
+    /* Glassmorphism tokens — dark, transparent */
+    --glass-bg: 240 6% 8%;
+    --glass-bg-alpha: 0.50;
+    --glass-blur: 24px;
+    --glass-border: 286 100% 60%;
+    --glass-border-alpha: 0.22;
+    --neon: 286 100% 50%;
+    --neon-glow: 286 100% 65%;
+    --card-elevated: 240 8% 10%;
+    --card-elevated-hover: 240 10% 13%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("/angel-wallpaper.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+  }
+}
+
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2.4s linear infinite;
+  background-size: 200% auto;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+@layer components {
+  .glass-card {
+    background: linear-gradient(
+      160deg,
+      hsl(var(--glass-bg) / var(--glass-bg-alpha)),
+      hsl(var(--glass-bg) / calc(var(--glass-bg-alpha) - 0.15))
+    );
+    backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+    border: 1px solid hsl(var(--glass-border) / var(--glass-border-alpha));
+    box-shadow:
+      0 4px 30px hsl(0 0% 0% / 0.18),
+      inset 0 1px 0 hsl(0 0% 100% / 0.06);
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  .glass-card:hover {
+    border-color: hsl(var(--glass-border) / calc(var(--glass-border-alpha) + 0.12));
+    box-shadow:
+      0 8px 40px hsl(var(--neon) / 0.1),
+      0 4px 30px hsl(0 0% 0% / 0.3),
+      inset 0 1px 0 hsl(0 0% 100% / 0.08);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .neon-glow {
+    box-shadow: 0 0 24px hsl(var(--neon) / 0.4);
+  }
+  .neon-glow-lg {
+    box-shadow: 0 0 12px hsl(var(--neon) / 0.5), 0 0 40px hsl(var(--neon) / 0.25), 0 0 80px hsl(var(--neon) / 0.1);
+  }
+}
+
+/* Hide Lovable badge */
+#lovable-badge,
+#lovable-badge-v2,
+[id^="lovable-badge"],
+a[href*="lovable.dev"][target="_blank"] {
+  display: none !important;
+}
+
+   @media (max-width: 640px) {
+     .glass-card {
+       backdrop-filter: blur(12px) saturate(150%);
+       -webkit-backdrop-filter: blur(12px) saturate(150%);
+       border-radius: 1rem;
+     }
+     
+     input, select, textarea, button {
+       font-size: 16px !important; /* Prevent iOS zoom */
+     }
+
+     /* Mobile optimizations for common admin components */
+     .dialog-content {
+       max-width: 95vw !important;
+       width: 95vw !important;
+       padding: 1rem !important;
+     }
+   }

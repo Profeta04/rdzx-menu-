@@ -1,0 +1,2 @@
+CREATE POLICY "Admins can update all sessions" ON public.sessions FOR UPDATE TO authenticated USING (public.is_admin()) WITH CHECK (public.is_admin());
+CREATE POLICY "Admins can delete all sessions" ON public.sessions FOR DELETE TO authenticated USING (public.is_admin());

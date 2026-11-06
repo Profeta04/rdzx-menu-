@@ -1,0 +1,1 @@
+ALTER FUNCTION public.handle_license_activation() SET search_path = public;
